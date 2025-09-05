@@ -1,0 +1,231 @@
+/* Styles for the image-in-text title */
+.image-title-section {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+}
+
+.image-title {
+    font-size: clamp(2rem, 6vw, 5rem);
+    white-space: nowrap;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #1e293b;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    /* This creates the text clipping effect */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* Team section */
+.team-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 180px;
+    flex-wrap: wrap;
+    background-color: #f8fafc;
+}
+
+.team-member {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease;
+}
+
+.team-member .image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.team-member .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member .info h3 {
+    color: white;
+}
+
+.team-member .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 45, 80, 0.7);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.8s ease;
+}
+
+.team-member:hover .overlay {
+    opacity: 1;
+}
+
+.team-member .info {
+    text-align: center;
+}
+
+.team-member .info h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.team-member .info p {
+    margin: 5px 0 15px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.introduction-social-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 160px;
+}
+
+/* .introduction-social-icons img {
+    width: 24px;
+    height: 24px;
+} */
+
+
+
+/* Details section */
+.details-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 50px auto;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.details-section {
+    max-width: 250px;
+    padding: 30px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+
+.details-section:hover {
+    transform: translateY(-10px);
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(41, 128, 185, 0.2);
+}
+
+.details-section img {
+    margin-bottom: 2rem;
+    height: 50px;
+    width: 50px;
+}
+
+.img-title-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company-section-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1c5d88;
+    margin-bottom: 0.5rem;
+}
+
+.company-section-content {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* About/Workstations section */
+.About-Onclick-Infotech-Work-Stations-and-Spaces {
+    padding-bottom: 4rem;
+}
+.company-about-section-padding {
+    padding: 4rem 1rem;
+}
+
+.about-company-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.workstations-section .about-company-container {
+    flex-direction: row-reverse;
+}
+
+.company-about-text-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.company-about-text-box h2 {
+    font-size: 2rem;
+    color: #1c5d88;
+    margin-bottom: 20px;
+}
+
+.company-about-text-box p {
+    font-size: .9rem;
+    margin-bottom: 15px;
+    color: #475569;
+    line-height: 1.7;
+}
+
+.company-about-image-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    text-align: center;
+}
+
+.company-about-image-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+@media (max-width: 992px) {
+    .workstations-section .about-company-container {
+        flex-direction: column-reverse;
+    }
+    .about-section .about-company-container {
+        flex-direction: column;
+    }
+    .team-section {
+        gap: 2rem;
+    }
+}

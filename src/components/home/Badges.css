@@ -1,0 +1,27 @@
+.badges-background {
+    background-color: #f8fafc;
+}
+
+.badges-container {
+    padding: 2rem 0;
+}
+.badges-flex {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1236px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.badge-flex-item {
+    flex: 1;
+    min-width: 100px;
+    max-width: 200px;
+    text-align: center;
+}
+.badge-image {
+    max-width: 100%;
+    height: auto;
+    opacity: 1;
+}

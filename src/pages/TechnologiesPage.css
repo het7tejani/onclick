@@ -1,0 +1,118 @@
+.technologies-page .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.technologies-page .page-header {
+    background: #f8fafc;
+    color: #10486d;
+    padding: 55px 0;
+    text-align: center;
+}
+
+.technologies-page .page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.technologies-page .page-header p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.service-technology-grid {
+    margin: 50px auto;
+    display: grid;
+    grid-template-areas:
+        "one one one one two two two two two"
+        "three three three three three four four four four"
+        "five five five five six six six six six";
+    grid-template-columns: repeat(9, 1fr);
+    gap: 20px;
+    padding: 0 20px 40px;
+}
+
+.services-grid-box {
+    background-color: #f1f5f9;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.services-grid-box:hover {
+    background-color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ideas-sec-hover {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.first-ideas {
+    margin: 0 auto 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.first-ideas img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.second-ideas h2 {
+    font-size: 1.75rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.second-ideas p {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.third-ideas {
+    margin-top: 1.5rem;
+}
+
+.service-technology-grid > .one { grid-area: one; }
+.service-technology-grid > .two { grid-area: two; }
+.service-technology-grid > .three { grid-area: three; }
+.service-technology-grid > .four { grid-area: four; }
+.service-technology-grid > .five { grid-area: five; }
+.service-technology-grid > .six { grid-area: six; }
+
+@media (max-width: 992px) {
+    .service-technology-grid {
+        grid-template-areas:
+            "one"
+            "two"
+            "three"
+            "four"
+            "five"
+            "six";
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .technologies-page .page-header h1 {
+        font-size: 2.2rem;
+    }
+}

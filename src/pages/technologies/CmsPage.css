@@ -1,0 +1,35 @@
+:root {
+    --primary: #2980b9;
+    --primary-dark: #1c5d88;
+    --primary-light: #3498db;
+    --neutral-blue: #eef5f9;
+    --neutral-gray-xlight: #f1f5f9;
+    --neutral-gray-dark: #475569;
+    --gray: #6b7280;
+    --container: 1200px;
+}
+
+.cms-page * {
+    box-sizing: border-box;
+}
+
+.cms-page h1, .cms-page h2, .cms-page h3 {
+    margin: 0;
+}
+
+.cms-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.cms-page .text-sm {
+    font-size: 0.9rem;
+}
+
+.technology-list-container {
+    padding: 4rem 0;
+    background-color: var(--neutral-blue);
+}
+.between-section-down, .between-section-up {
+    height: 50px;
+}

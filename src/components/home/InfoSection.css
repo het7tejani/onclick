@@ -1,0 +1,127 @@
+/* Section wrapper */
+.info-section {
+  margin-bottom: 5rem;
+  padding: 3rem 1rem;
+  background: #f8fbff; /* very light bluish background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.info-container.row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Content column */
+.info-content-wrapper {
+  flex: 1;
+  min-width: 320px;
+}
+
+.info-content-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0f172a; /* darker navy */
+}
+
+.info-content-text ul {
+  list-style: disc outside;
+  padding-left: 1.25rem;
+  color: #475569;
+}
+
+.info-content-text li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.info-content-text strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.info-content-link {
+  margin-top: 2rem;
+}
+
+/* Image column */
+.info-featured-wrapper {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+  transform: translateX(80px); /* slide from right by default */
+}
+
+.info-container.row-reverse .info-featured-wrapper {
+  transform: translateX(-80px); /* slide from left */
+}
+
+.info-featured-image img {
+  max-width: 110%; /* make image bigger */
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+  opacity: 0; /* hidden at first */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.is-visible .info-featured-image img {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+/* Animation */
+.kd-animated {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.info-container.row-reverse .info-content-wrapper {
+  transform: translateX(50px);
+}
+.info-container .info-content-wrapper {
+  transform: translateX(-50px);
+}
+
+.is-visible .kd-animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .info-container,
+  .info-container.row-reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-content-wrapper {
+    transform: none !important;
+  }
+
+  .info-featured-wrapper {
+    transform: none !important;
+  }
+
+  .info-content-link {
+    margin-top: 1.5rem;
+  }
+
+  .info-featured-image img {
+    max-width: 100%; /* keep smaller on mobile */
+  }
+}

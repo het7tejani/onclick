@@ -1,13 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #303030;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2980b9;
+  --primary-dark: #1c5d88;
+  --primary-xdark: #10486d;
+  --neutral-gray-dark: #303030;
+  --neutral-white: #fff;
+  --border-radius-md: 24px;
+  --transition: all 200ms ease;
+}
+
+a,
+button,
+div,
+input,
+select,
+textarea {
+    -webkit-tap-highlight-color: transparent
+}
+
+
+*,
+:after,
+:before {
+    border: 0 solid #e5e7eb;
+    box-sizing: border-box
+}
+
+:after,
+:before {
+    --tw-content: ""
+}
+
+html {
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4
+}
+
+body {
+    line-height: inherit
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: inherit;
+    font-weight: inherit
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit
+}
+
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+    margin: 0
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0
+}
+
+[type=button],
+[type=reset],
+[type=submit],
+button {
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* === Buttons === */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 9999px; /* pill shape */
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Primary Button (Blue) */
+.btn-primary {
+    border-color: #499DD0;
+    color: #499DD0;
+    background-color: transparent;
+}
+
+.btn-primary:hover {
+    background-color: #499DD0;
+    color: #fff;
+}
+
+/* Secondary Button (Coral) */
+.btn-secondary {
+    border-color: #ff7f50;
+    color: #ff7f50;
+    background-color: transparent;
+}
+
+.btn-secondary:hover {
+    background-color: #ff7f50;
+    color: #fff;
+}
+
+/* Disabled State for Buttons */
+.btn-primary:disabled,
+.btn-secondary:disabled {
+    border-color: #ccc;
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.btn-primary:disabled:hover,
+.btn-secondary:disabled:hover {
+    border-color: #ccc;
+    background-color: #ccc;
+    color: #666;
+}
+
+
+@media (min-width:640px) {
+    .container {
+        max-width: 640px
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        max-width: 768px
+    }
+}
+
+@media (min-width:1024px) {
+    .container {
+        max-width: 1024px
+    }
+}
+
+@media (min-width:1280px) {
+    .container {
+        max-width: 1280px
+    }
+}
+
+@media (min-width:1536px) {
+    .container {
+        max-width: 1536px;
+    }
 }

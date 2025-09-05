@@ -1,0 +1,112 @@
+/* Scoping class */
+.policy-page-wrapper {
+    background-color: #fff;
+}
+
+.policy-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+}
+
+.policy-content {
+    flex: 2.5; /* Give more space to content */
+    padding-right: 3rem;
+}
+
+.sidebar {
+    flex: 1;
+    position: sticky;
+    top: 120px; /* Header height + padding */
+    align-self: flex-start; /* Important for sticky to work in flexbox */
+    height: fit-content;
+    padding-left: 2rem;
+    border-left: 1px solid #e0e0e0;
+}
+
+.policy-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.policy-content h2 {
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1.5rem;
+    color: #334155;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 600;
+}
+
+.policy-content p,
+.policy-content li {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #475569;
+}
+
+.policy-content ol, .policy-content ul {
+    padding-left: 1.5rem;
+}
+
+.policy-content a {
+    color: #499DD0;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.policy-content a:hover {
+    color: #1c5d88;
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sidebar-list li a {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.sidebar-list li a:hover {
+    color: #1e293b;
+}
+
+@media (max-width: 992px) {
+    .policy-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: static;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-left: 0;
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+    .policy-content {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .policy-content h1 {
+        font-size: 2rem;
+    }
+    .policy-content h2 {
+        font-size: 1.5rem;
+    }
+}

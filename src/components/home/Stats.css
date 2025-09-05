@@ -1,0 +1,48 @@
+.stats-section {
+    padding: 4rem 2rem;
+    background-color: #f8fafc;
+    background-image: url('../../assets/home/vector-bg.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1c5d88;
+    margin: 0;
+}
+
+.stat-item h1 sup {
+    font-size: 0.5em;
+    position: relative;
+    top: -0.7em;
+}
+
+.stat-item h3 {
+    font-size: 1.1rem;
+    color: #1c5d88;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

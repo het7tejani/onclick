@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const ArrowRightIcon = () => (
@@ -35,6 +35,16 @@ const InstagramIcon = () => (
 
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const navigate = useNavigate();
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (newsletterEmail.trim()) {
+      navigate('/contact', { state: { email: newsletterEmail } });
+    }
+  };
+
   return (
     <footer className="footer-new">
       <div className="container footer-new-container">
@@ -42,10 +52,17 @@ const Footer = () => {
           <div className="footer-newsletter">
             <h2>Sign up for our newsletter</h2>
             <p>Monthly hand-picked discoveries and stories of thriving in a new world of design. GIFs (often) included.</p>
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleNewsletterSubmit}>
               <label htmlFor="email-newsletter">Email Address</label>
               <div className="input-group">
-                <input id="email-newsletter" type="email" placeholder="yourname@example.com" />
+                <input
+                  id="email-newsletter"
+                  type="email"
+                  placeholder="yourname@example.com"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  required
+                />
                 <button type="submit" aria-label="Subscribe to newsletter"><ArrowRightIcon /></button>
               </div>
             </form>

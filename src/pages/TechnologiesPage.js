@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './TechnologiesPage.css';
+import './TechnologiesPage.css'
 import Hero from '../components/home/Hero';
 
 
@@ -67,6 +67,7 @@ const TechnologiesPage = () => {
                 title="Technologies of Onclick Infotech"
                 description="Onclick Infotech uses modern technologies like React.js, Node.js, PHP, and Laravel for web development, and Flutter, React Native, Swift, and Kotlin for mobile app development."
                 buttonText="Get Started"
+                buttonLink="/contact"
                 image={heroDashboardImage}
                 imageAlt="Onclick Infotech Technologies"
                 imageOnLeft={false}

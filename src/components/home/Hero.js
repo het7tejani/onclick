@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 import ParticleCanvas from './ParticleCanvas';
 
@@ -18,7 +19,7 @@ const Hero = ({ title, description, listItems, buttonText, buttonLink, image, im
                     ) : (
                         <p className="hero-description">{description}</p>
                     )}
-                    {buttonText && <a href={buttonLink || "#contact"} className="btn-primary hero-button">{buttonText}</a>}
+                    {buttonText && <Link to={buttonLink || "/contact"} className="btn-primary hero-button">{buttonText}</Link>}
                 </div>
                 {image && (
                     <div className="hero-image">

@@ -2,24 +2,24 @@ import React from 'react';
 import './TrustedBy.css';
 
 // Import local logo images from available assets
-import clientLogo1 from '../assets/about/logo/1.png';
-import clientLogo2 from '../assets/about/logo/2.png';
-import clientLogo7 from '../assets/about/logo/7.png';
-import clientLogo8 from '../assets/about/logo/8.png';
-import clientLogo9 from '../assets/about/logo/9.png';
-import clientLogo10 from '../assets/about/logo/10.png';
-import clientLogo11 from '../assets/about/logo/11.png';
-import clientLogo12 from '../assets/about/logo/12.png';
-import clientLogo13 from '../assets/about/logo/13.png';
-import clientLogo14 from '../assets/about/logo/14.png';
-import clientLogo15 from '../assets/about/logo/15.png';
-import clientLogo16 from '../assets/about/logo/16.png';
-import clientLogo17 from '../assets/about/logo/17.png';
-import clientLogo18 from '../assets/about/logo/18.png';
-import clientLogo19 from '../assets/about/logo/19.png';
-import clientLogo20 from '../assets/about/logo/20.png';
-import clientLogo21 from '../assets/about/logo/21.png';
-import clientLogo22 from '../assets/about/logo/22.png';
+import clientLogo1 from '../assets/about/logo/1.webp';
+import clientLogo2 from '../assets/about/logo/2.webp';
+import clientLogo7 from '../assets/about/logo/7.webp';
+import clientLogo8 from '../assets/about/logo/8.webp';
+import clientLogo9 from '../assets/about/logo/9.webp';
+import clientLogo10 from '../assets/about/logo/10.webp';
+import clientLogo11 from '../assets/about/logo/11.webp';
+import clientLogo12 from '../assets/about/logo/12.webp';
+import clientLogo13 from '../assets/about/logo/13.webp';
+import clientLogo14 from '../assets/about/logo/14.webp';
+import clientLogo15 from '../assets/about/logo/15.webp';
+import clientLogo16 from '../assets/about/logo/16.webp';
+import clientLogo17 from '../assets/about/logo/17.webp';
+import clientLogo18 from '../assets/about/logo/18.webp';
+import clientLogo19 from '../assets/about/logo/19.webp';
+import clientLogo20 from '../assets/about/logo/20.webp';
+import clientLogo21 from '../assets/about/logo/21.webp';
+import clientLogo22 from '../assets/about/logo/22.webp';
 
 // Using local logos with their corresponding alt tags for consistency.
 // The size and offset properties are kept from the original design to maintain the visual layout.

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ContactPage.css';
 
 // Assuming asset paths, adjust if necessary
@@ -13,8 +14,8 @@ const useAnimateOnScroll = () => {
     const ref = useRef(null);
 
     useEffect(() => {
-        const elements = ref.current.querySelectorAll('.animate-on-scroll');
-        if (elements.length === 0) return;
+        const elements = ref.current?.querySelectorAll('.animate-on-scroll');
+        if (!elements || elements.length === 0) return;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -75,6 +76,19 @@ const PartnersIcon = () => (
     </svg>
 );
 
+const ArrowIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 5L20 12L13 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4 5L11 12L4 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+  
+const CheckIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
 
 const contactCardsData = [
     {
@@ -109,6 +123,7 @@ const contactCardsData = [
 
 
 const ContactPage = () => {
+    const location = useLocation();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -116,62 +131,141 @@ const ContactPage = () => {
         service: '',
         message: ''
     });
+
     const [isVerified, setIsVerified] = useState(false);
-    const [showCaptcha, setShowCaptcha] = useState(false);
-    const [captcha, setCaptcha] = useState({ num1: 0, num2: 0, answer: 0 });
-    const [captchaInput, setCaptchaInput] = useState('');
-    const [formStatus, setFormStatus] = useState('idle'); // idle, sending, sent
+    const [isDragging, setIsDragging] = useState(false);
+    const [sliderPosition, setSliderPosition] = useState(0);
+
+    const [formStatus, setFormStatus] = useState({ status: 'idle', message: ''});
     const sectionRef = useAnimateOnScroll();
 
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    const sliderRef = useRef(null);
+    const thumbRef = useRef(null);
+
+
+    useEffect(() => {
+        if (location.state?.email) {
+            setFormData(prev => ({ ...prev, email: location.state.email }));
+        }
+    }, [location.state]);
+
+    // Click outside handler for custom dropdown
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const serviceOptions = [
+        "Web Development",
+        "Mobile App Development",
+        "Cloud Solutions",
+        "Search Engine Optimization(SEO)",
+        "UI/UX devlopment",
+        "AI - ML App Devlopment",
+        "Quality Assurance",
+        "Mobile Game Development"
+    ];
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleCaptchaCheckbox = () => {
-        if (!isVerified) {
-            const num1 = Math.floor(Math.random() * 10 + 1);
-            const num2 = Math.floor(Math.random() * 10 + 1);
-            setCaptcha({ num1, num2, answer: num1 + num2 });
-            setShowCaptcha(true);
+    const handleServiceSelect = (service) => {
+        setFormData(prev => ({ ...prev, service }));
+        setIsDropdownOpen(false);
+    };
+
+    const handleDragStart = (e) => {
+        if (isVerified) return;
+        setIsDragging(true);
+    };
+
+    const handleDragMove = (e) => {
+        if (!isDragging || isVerified) return;
+        
+        const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+        const slider = sliderRef.current;
+        const thumb = thumbRef.current;
+        if (!slider || !thumb) return;
+
+        const sliderRect = slider.getBoundingClientRect();
+        const thumbWidth = thumb.getBoundingClientRect().width;
+
+        const newLeft = clientX - sliderRect.left - thumbWidth / 2;
+        const maxLeft = sliderRect.width - thumbWidth;
+
+        const boundedLeft = Math.max(0, Math.min(newLeft, maxLeft));
+        setSliderPosition(boundedLeft);
+
+        if (boundedLeft > maxLeft - 5) { // 5px threshold
+            setIsVerified(true);
+            setIsDragging(false);
+            setSliderPosition(maxLeft);
         }
     };
     
-    const checkCaptchaAnswer = () => {
-        if (parseInt(captchaInput) === captcha.answer) {
-            setIsVerified(true);
-            alert('Verified successfully! ✅');
-            setShowCaptcha(false);
-        } else {
-            alert('Incorrect answer! Please try again. ❌');
-            setIsVerified(false);
-        }
-        setCaptchaInput('');
+    const handleDragEnd = () => {
+        if (isVerified) return;
+        setIsDragging(false);
+        setSliderPosition(0);
     };
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        if (isDragging) {
+            window.addEventListener('mousemove', handleDragMove);
+            window.addEventListener('touchmove', handleDragMove);
+            window.addEventListener('mouseup', handleDragEnd);
+            window.addEventListener('touchend', handleDragEnd);
+        }
+        return () => {
+            window.removeEventListener('mousemove', handleDragMove);
+            window.removeEventListener('touchmove', handleDragMove);
+            window.removeEventListener('mouseup', handleDragEnd);
+            window.removeEventListener('touchend', handleDragEnd);
+        };
+    }, [isDragging, isVerified]);
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const { name, email, phone, service, message } = formData;
         if (!name || !email || !phone || !service || !message) {
-            alert('Please fill in all required fields.');
+            setFormStatus({ status: 'error', message: 'Please fill in all required fields.' });
             return;
         }
         if (!isVerified) {
-            alert('Please verify that you are not a robot.');
+            setFormStatus({ status: 'error', message: 'Please complete the verification slider.' });
             return;
         }
 
-        setFormStatus('sending');
-        setTimeout(() => {
-            setFormStatus('sent');
-            console.log('Form Submitted:', formData);
-            setTimeout(() => {
-                setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-                setIsVerified(false);
-                setFormStatus('idle');
-            }, 2000);
-        }, 1500);
+        setFormStatus({ status: 'sending', message: '' });
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error || 'Something went wrong.');
+            setFormStatus({ status: 'success', message: result.message });
+            setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+            setIsVerified(false);
+            setSliderPosition(0);
+        } catch (error) {
+            setFormStatus({ status: 'error', message: error.message });
+        }
     };
 
     return (
@@ -232,64 +326,78 @@ const ContactPage = () => {
                                 <label htmlFor="phone">Phone</label>
                                 <span className="underline"></span>
                             </div>
-                            <div className="form-group">
-                                <select id="service" name="service" value={formData.service} onChange={handleChange} required>
-                                    <option value="" disabled></option>
-                                    <option value="web">Web Development</option>
-                                    <option value="mobile">Mobile App Development</option>
-                                    <option value="cloud">Cloud Solutions</option>
-                                    <option value="SEO">Search Engine Optimization(SEO)</option>
-                                    <option value="UI/UX">UI/UX devlopment</option>
-                                    <option value="AI - ML">AI - ML App Devlopment</option>
-                                    <option value="(QA)">Quality Assurance</option>
-                                    <option value="Game Development">Mobile Game Development</option>
-                                </select>
-                                <label htmlFor="service">Select a Service</label>
+                            
+                            <div
+                                className={`form-group custom-select-container ${formData.service ? 'filled' : ''} ${isDropdownOpen ? 'open' : ''}`}
+                                ref={dropdownRef}
+                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                tabIndex="0"
+                                role="combobox"
+                                aria-haspopup="listbox"
+                                aria-expanded={isDropdownOpen}
+                                onKeyDown={(e) => e.key === 'Enter' && setIsDropdownOpen(!isDropdownOpen)}
+                            >
+                                <div className="selected-value">{formData.service || ''}</div>
+                                <label>Select a Service</label>
                                 <span className="underline"></span>
+                                <span className="dropdown-icon" aria-hidden="true"></span>
+                                {isDropdownOpen && (
+                                    <ul className="options-list" role="listbox">
+                                        {serviceOptions.map(option => (
+                                            <li
+                                                key={option}
+                                                onClick={() => handleServiceSelect(option)}
+                                                role="option"
+                                                aria-selected={formData.service === option}
+                                                tabIndex="0"
+                                                onKeyDown={(e) => e.key === 'Enter' && handleServiceSelect(option)}
+                                            >
+                                                {option}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
+
                             <div className="form-group">
                                 <textarea id="message" name="message" rows="4" value={formData.message} onChange={handleChange} required placeholder=" "></textarea>
                                 <label htmlFor="message">Message</label>
                                 <span className="underline"></span>
                             </div>
                             <div className="form-footer">
-                                <div className="captcha_container">
-                                    <input type="checkbox" id="not-robot" checked={isVerified} onChange={handleCaptchaCheckbox} />
-                                    <label htmlFor="not-robot" onClick={handleCaptchaCheckbox}>I'm not a robot</label>
+                                <div 
+                                    className={`verification-slider ${isVerified ? 'verified' : ''} ${isDragging ? 'dragging' : ''}`}
+                                    ref={sliderRef}
+                                >
+                                    <div className="slider-progress" style={{ width: `${sliderPosition + 44}px` }}></div>
+                                    <div 
+                                        className="slider-thumb" 
+                                        ref={thumbRef}
+                                        style={{ left: `${sliderPosition}px` }}
+                                        onMouseDown={handleDragStart}
+                                        onTouchStart={handleDragStart}
+                                    >
+                                        {isVerified ? <CheckIcon/> : <ArrowIcon />}
+                                    </div>
+                                    <span className="slider-text">Slide to Verify</span>
+                                    <span className="verified-text">Verified!</span>
                                 </div>
-                                <button type="submit" className="btn-primary" disabled={formStatus === 'sending' || formStatus === 'sent'}>
-                                    {formStatus === 'idle' && 'Send Message'}
-                                    {formStatus === 'sending' && 'Sending...'}
-                                    {formStatus === 'sent' && 'Sent!'}
+                                <button type="submit" className="btn-primary" disabled={formStatus.status === 'sending'}>
+                                    {formStatus.status === 'sending' ? 'Sending...' : 'Send Message'}
                                 </button>
                             </div>
+                             {formStatus.message && (
+                                <div className={`form-feedback ${formStatus.status}`}>
+                                    {formStatus.message}
+                                </div>
+                            )}
                             <div className="privacy">
-                                <p>By submitting this form, you agree to our <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms of Service</a></p>
+                                <p>By submitting this form, you agree to our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-service">Terms of Service</a></p>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                {showCaptcha && (
-                    <div className={`popup-overlay ${showCaptcha ? 'show' : ''}`}>
-                        <div className="popup-content">
-                            <div id="captcha-question" style={{ margin: '10px 0' }}>
-                                What is {captcha.num1} + {captcha.num2}?
-                            </div>
-                            <input
-                                type="text"
-                                id="captcha-answer"
-                                placeholder="Type answer here"
-                                value={captchaInput}
-                                onChange={(e) => setCaptchaInput(e.target.value)}
-                                style={{ padding: '10px 0', margin: '10px' }}
-                            />
-                            <br />
-                            <button type="button" className="captcha_btn" onClick={checkCaptchaAnswer}>Verify</button>
-                            <button type="button" className="captcha_btn" onClick={() => setShowCaptcha(false)}>Cancel</button>
-                        </div>
-                    </div>
-                )}
             </section>
             
             <section className="get-in-touch-section">

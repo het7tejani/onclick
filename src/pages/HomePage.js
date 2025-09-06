@@ -25,6 +25,7 @@ const infoSectionsData = [
       ],
       image: successStoryImage,
       buttonText: "Request a quote",
+      buttonLink: "/contact",
       imageOnLeft: false,
     },
     {
@@ -40,6 +41,7 @@ const infoSectionsData = [
       ],
       image: priorityImage,
       buttonText: "Prioritize your business",
+      buttonLink: "/contact",
       imageOnLeft: true,
     },
     {
@@ -65,6 +67,7 @@ const HomePage = () => {
                 title="Onclick Infotech"
                 description="We develop innovative software solutions, provide IT consulting, and deliver cutting-edge technology services. Our team specializes in web/mobile app development, cloud computing, cybersecurity, and AI solutions, helping businesses optimize operations and achieve digital transformation with scalable, secure, and efficient systems."
                 buttonText="Get Started"
+                buttonLink="/contact"
                 image={heroDashboardImage}
                 imageAlt="Dashboard preview"
                 imageOnLeft={false}
@@ -78,6 +81,7 @@ const HomePage = () => {
                       listItems={section.listItems}
                       image={section.image}
                       buttonText={section.buttonText}
+                      buttonLink={section.buttonLink}
                       imageOnLeft={section.imageOnLeft}
                   />
               ))}

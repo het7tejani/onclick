@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './InfoSection.css';
 
 const AnimatedSection = ({ children }) => {
@@ -32,7 +33,7 @@ const AnimatedSection = ({ children }) => {
     return React.cloneElement(children, { ref });
 };
 
-const InfoSection = ({ title, listItems, image, buttonText, imageOnLeft }) => {
+const InfoSection = ({ title, listItems, image, buttonText, buttonLink, imageOnLeft }) => {
     return (
         <AnimatedSection>
             <section className="info-section">
@@ -48,7 +49,7 @@ const InfoSection = ({ title, listItems, image, buttonText, imageOnLeft }) => {
                         </div>
                         {buttonText && (
                              <div className="info-content-link">
-                                <a href="#contact" className="btn-primary">{buttonText}</a>
+                                <Link to={buttonLink || '#'} className="btn-primary">{buttonText}</Link>
                             </div>
                         )}
                     </div>

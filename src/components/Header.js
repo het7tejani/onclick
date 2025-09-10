@@ -314,26 +314,22 @@ const Header = () => {
                     className={`accordion-header ${
                       openAccordion === item.name ? "open" : ""
                     }`}
-                    onClick={() => item.dropdown && toggleAccordion(item.name)}
                   >
-                    <Link
-                      to={item.path}
-                      onClick={(e) => {
-                        if (item.dropdown) e.preventDefault();
-                        else setIsMobileMenuOpen(false);
-                      }}
-                    >
+                    <Link to={item.path} onClick={() => setIsMobileMenuOpen(false)}>
                       {item.name}
                     </Link>
-                    {item.dropdown &&
-                      (openAccordion === item.name ? (
-                        <ArrowUpIcon />
-                      ) : (
-                        <ArrowDownIcon />
-                      ))}
+                    <button
+                      className="accordion-toggle-button"
+                      onClick={() => toggleAccordion(item.name)}
+                      aria-expanded={openAccordion === item.name}
+                      aria-controls={`accordion-content-${item.name}`}
+                    >
+                      {openAccordion === item.name ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                    </button>
                   </div>
                   {item.dropdown && (
                     <div
+                      id={`accordion-content-${item.name}`}
                       className={`accordion-content ${
                         openAccordion === item.name ? "open" : ""
                       }`}

@@ -110,6 +110,27 @@
     }
 }
 
+@media (max-width: 768px) {
+    .technologies-page .page-header {
+        padding: 40px 0;
+    }
+    .service-technology-grid {
+        margin: 3rem auto;
+    }
+    .services-grid-box {
+        padding: 20px;
+    }
+    .second-ideas h2 {
+        font-size: 1.5rem;
+    }
+    .second-ideas p {
+        font-size: 0.9rem;
+    }
+    .first-ideas {
+        height: 120px;
+    }
+}
+
 @media (max-width: 640px) {
     .technologies-page .page-header h1 {
         font-size: 2.2rem;

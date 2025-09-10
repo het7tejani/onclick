@@ -27,7 +27,7 @@
 
 .logos-title {
   text-align: center;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 3rem;
@@ -39,17 +39,17 @@
 .logos-container {
   display: flex;
   align-items: center;
-  height: 250px;
+  height: 200px;
   overflow: hidden;
 }
 
 .logos-track {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 60px;
   width: max-content;
-  animation: scroll 60s linear infinite; /* smoother scroll */
-  padding: 0 40px;
+  animation: scroll 60s linear infinite;
+  padding: 0 30px;
 }
 
 @keyframes scroll {
@@ -57,7 +57,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%); /* full loop */
+    transform: translateX(-100%);
   }
 }
 
@@ -72,14 +72,15 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
-  transform: translateY(var(--translate-y, 0)); /* ✅ base offset */
+  transform: translateY(var(--translate-y, 0));
   will-change: transform;
+  padding: 15px;
 }
 
 .logo-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 1;
   transition: all 0.3s ease;
 }
@@ -98,7 +99,7 @@
     margin-bottom: 2rem;
   }
   .logos-container {
-    height: 200px;
+    height: 120px;
   }
   .logos-track {
     gap: 40px;

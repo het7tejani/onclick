@@ -88,10 +88,29 @@
 }
 
 @media (max-width: 768px) {
+    .service-hero-container {
+        min-height: auto;
+        padding: 4rem 1rem;
+    }
     .service-hero-inner {
         flex-direction: column !important;
     }
     .service-hero-inner h1 { 
         font-size: 2rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero-container {
+        padding: 3rem 1rem;
+    }
+    .service-hero-inner h1 {
+        font-size: 1.8rem;
+    }
+    .description {
+        font-size: 0.9rem;
+    }
+    .solutions-heading {
+        font-size: 1.1rem;
     }
 }

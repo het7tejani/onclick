@@ -1,7 +1,7 @@
 .card-grid-container {
     max-width: 1200px; 
     margin: 6rem auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
 }
 
 .card-grid-container .section-header {
@@ -88,7 +88,19 @@
 }
 
 @media (max-width: 768px) {
+    .card-grid-container {
+        margin: 4rem auto;
+    }
     .section-header h2 { 
         font-size: 1.75rem; 
+    }
+    .category-content h3 {
+        font-size: 1.1rem;
+    }
+    .category-content p {
+        font-size: 0.9rem;
+    }
+    .category-image {
+        height: 120px;
     }
 }

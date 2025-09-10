@@ -1,8 +1,9 @@
-import React, { Suspense, lazy, useEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import './App.css';
+import TypewriterLoader from './components/loaders/TypewritesLoader.js';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage.js'));
@@ -23,12 +24,6 @@ const DatabasePage = lazy(() => import('./pages/technologies/DatabasePage.js'));
 const InfrastructurePage = lazy(() => import('./pages/technologies/InfrastructurePage.js'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage.js'));
 const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage.js'));
-
-const LoadingFallback = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 160px)', fontSize: '1.2rem', color: '#475569' }}>
-        Loading page...
-    </div>
-);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -60,13 +55,41 @@ function ScrollToTop() {
 }
 
 function App() {
+  const [isLoading, setIsLoading] = useState(() => {
+    // Show loader on first visit in a session OR on manual reload.
+    if (typeof performance.getEntriesByType !== 'function') {
+        // Fallback for browsers that don't support PerformanceNavigationTiming
+        const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
+        return !hasLoadedBefore;
+    }
+    const navigationEntries = performance.getEntriesByType("navigation");
+    const isReload = navigationEntries.length > 0 && navigationEntries[0].type === 'reload';
+    const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
+    return !hasLoadedBefore || isReload;
+  });
+
+  useEffect(() => {
+    if (isLoading) {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        sessionStorage.setItem('hasLoadedBefore', 'true');
+      }, 4000); // Duration for the loader, matches CSS animation
+
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return <TypewriterLoader />;
+  }
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <div className="App">
         <Header />
         <main className="main-content">
-          <Suspense fallback={<LoadingFallback />}>
+          <Suspense fallback={<TypewriterLoader />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />

@@ -338,8 +338,42 @@
 }
 
 @media (max-width: 768px) {
+    .team-section-new-circle {
+        padding: 3rem 1rem;
+    }
+    .details-wrapper {
+        padding: 4rem 1rem;
+    }
+    .company-about-section-padding {
+        padding: 2rem 1rem;
+    }
     .team-member-circle {
         width: 300px;
         height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member-circle {
+        width: 250px;
+        height: 250px;
+    }
+    .team-name-circle {
+        font-size: 1.5rem;
+    }
+    .team-title-circle {
+        font-size: 0.9rem;
+    }
+    .company-about-text-box h2 {
+        font-size: 1.75rem;
+    }
+    .company-about-text-box p {
+        font-size: 0.85rem;
+    }
+    .details-section {
+        padding: 20px;
+    }
+    .company-section-title {
+        font-size: 1.1rem;
     }
 }

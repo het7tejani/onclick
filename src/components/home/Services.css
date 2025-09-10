@@ -27,12 +27,6 @@
     margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr; /* 1 card per row on mobile */
-    }
-}
-
 .service-card {
     background: white;
     padding: 2rem;
@@ -103,8 +97,26 @@
     transform: translateX(0);
 }
 
-/* On mobile, all cards should slide in from bottom */
 @media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* 1 card per row on mobile */
+    }
+    .featured-services {
+        padding: 3rem 1rem;
+    }
+    .featured-services-heading-2 h2 {
+        font-size: 2rem;
+    }
+    .service-card {
+        padding: 1.5rem;
+    }
+    .heading-services-card h3 {
+        font-size: 1.1rem;
+    }
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    /* On mobile, all cards should slide in from bottom */
     .service-card-animation.from-left,
     .service-card-animation.from-right {
         transform: translateY(50px);

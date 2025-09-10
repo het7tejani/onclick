@@ -1,5 +1,6 @@
 .badges-background {
     background-color: #f8fafc;
+    overflow-x: hidden;
 }
 
 .badges-container {
@@ -17,11 +18,38 @@
 .badge-flex-item {
     flex: 1;
     min-width: 100px;
-    max-width: 200px;
+    max-width: 170px;
     text-align: center;
 }
 .badge-image {
     max-width: 100%;
     height: auto;
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .badges-container {
+        padding: 2rem 0;
+    }
+    .badges-flex {
+        flex-wrap: nowrap; /* Ensure single line */
+        justify-content: flex-start; /* Align to the start for scrolling */
+        overflow-x: auto; /* Enable horizontal scroll */
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        padding: 0 1rem; /* Add padding for spacing */
+        margin: 0 auto;
+        gap: 1.2rem; /* Adjust gap for scrolling */
+    }
+    /* Hide scrollbar */
+    .badges-flex::-webkit-scrollbar {
+        display: none;
+    }
+    .badges-flex {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .badge-flex-item {
+        flex: 0 0 100px; /* Set a fixed base width, don't grow or shrink */
+        max-width: 100px; /* Explicitly set max-width for mobile */
+    }
 }

@@ -488,6 +488,21 @@
       "steps"
       "cta";
   }
+  .result-card h3 {
+      font-size: 1rem;
+  }
+  .result-card p, .result-card li {
+      font-size: 0.9rem;
+  }
+  .tagline-card p {
+      font-size: 1.2rem;
+  }
+  .budget-value {
+      font-size: 1.5rem;
+  }
+  .font-sample h4 {
+      font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -495,6 +510,24 @@
   .analyzer-step-pro h2 { font-size: 1.5rem; }
   .analyzer-step-pro p.step-description { font-size: 0.95rem; }
   .result-card { padding: 1rem; }
+  .result-grid { gap: 1rem; }
+  .color-circle {
+      width: 40px;
+      height: 40px;
+  }
+  .tone-card-pro, .budget-card-pro, .database-card-pro {
+      padding: 1rem;
+  }
+  .tone-card-icon, .budget-card-icon, .database-card-icon {
+      font-size: 1.5rem;
+  }
+  .tone-card-title, .budget-card-title, .database-card-title {
+      font-size: 0.95rem;
+  }
+  .analyzer-nav-pro .btn-secondary, .analyzer-nav-pro .btn-primary {
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+  }
 }
 
 /* Print Styles */

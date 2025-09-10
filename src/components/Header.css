@@ -236,7 +236,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   width: 100%;
 }
 
@@ -251,6 +250,18 @@
 
 .accordion-header.open a {
   color: #334155;
+}
+
+.accordion-toggle-button {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .accordion-header svg {
@@ -316,6 +327,12 @@
   width: 100%;
   padding: 0.8rem;
   font-size: 0.9rem;
+}
+
+@media (max-width: 1200px) {
+  .nav-links ul {
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 1024px) {

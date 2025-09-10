@@ -195,13 +195,22 @@
 }
 
 @media (max-width: 768px) {
+    .footer-new {
+        padding-top: 4rem;
+    }
     .footer-links-grid {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
     }
     .footer-newsletter h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+    }
+    .footer-newsletter p {
+        font-size: 0.9rem;
+    }
+    .footer-list a {
+        font-size: 0.9rem;
     }
     .footer-new-bottom {
         flex-direction: column;

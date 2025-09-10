@@ -110,6 +110,18 @@
     .service-detail-section.image-on-left {
         flex-direction: column !important;
     }
-    .content-column h2 { font-size: 1.75rem; }
+    .content-column h2 { font-size: 1.5rem; }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .content-column p {
+        font-size: 0.95rem;
+    }
+    .services-list h3 {
+        font-size: 1rem;
+    }
+    .services-list li {
+        font-size: 0.9rem;
+    }
     .services-list ul { grid-template-columns: 1fr; }
 }

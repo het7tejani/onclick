@@ -2,7 +2,7 @@
 .feature-showcase-container-creative {
     max-width: 1200px;
     margin: 6rem auto;
-    padding: 0 1rem;
+    padding: 0 2rem;
     
 }
 
@@ -110,9 +110,12 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-    .feature-showcase-container-creative {
+    .feature-showcase-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    .feature-showcase-container-creative {
+        margin: 4rem auto;
     }
     .feature-showcase-display-creative {
         position: static;
@@ -140,5 +143,20 @@
     }
     .feature-display-description h3 {
         font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-showcase-title, .feature-showcase-content-creative h2 {
+        font-size: 1.75rem;
+    }
+    .feature-tab-item h3 {
+        font-size: 0.9rem;
+    }
+    .feature-display-description h3 {
+        font-size: 1.1rem;
+    }
+    .feature-display-description p {
+        font-size: 0.95rem;
     }
 }

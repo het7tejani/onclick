@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ContactPage.css';
+import SEO from '../components/SEO';
 
 // Assuming asset paths, adjust if necessary
 import emailIcon from '../assets/home/footer logo/ATR.png';
@@ -147,8 +148,16 @@ const ContactPage = () => {
 
 
     useEffect(() => {
-        if (location.state?.email) {
-            setFormData(prev => ({ ...prev, email: location.state.email }));
+        const stateData = location.state;
+        if (stateData) {
+            const updates = {};
+            if (stateData.email) updates.email = stateData.email;
+            if (stateData.name) updates.name = stateData.name;
+            if (stateData.phone) updates.phone = stateData.phone;
+            if (stateData.service) updates.service = stateData.service;
+            if (stateData.message) updates.message = stateData.message;
+
+            setFormData(prev => ({ ...prev, ...updates }));
         }
     }, [location.state]);
 
@@ -270,6 +279,10 @@ const ContactPage = () => {
 
     return (
         <>
+            <SEO 
+              title="Contact Us | Get a Quote"
+              description="Ready to start a project? Get in touch with Onclick Infotech for a free consultation on our web, mobile, and cloud services. Let's build something great together."
+            />
             <section className="contact" ref={sectionRef} id="contact-form-section">
                 <div className="contact-container">
                     <div className="contact-left">

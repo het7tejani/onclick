@@ -39,7 +39,8 @@
 .logos-container {
   display: flex;
   align-items: center;
-  height: 250px; /* Vertical space for the logos to float in */
+  height: 250px;
+  overflow: hidden;
 }
 
 .logos-track {
@@ -47,7 +48,7 @@
   align-items: center;
   gap: 80px;
   width: max-content;
-  animation: scroll 120s linear infinite;
+  animation: scroll 60s linear infinite; /* smoother scroll */
   padding: 0 40px;
 }
 
@@ -56,7 +57,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translateX(-100%); /* full loop */
   }
 }
 
@@ -71,6 +72,8 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
   overflow: hidden;
+  transform: translateY(var(--translate-y, 0)); /* ✅ base offset */
+  will-change: transform;
 }
 
 .logo-slide img {
@@ -82,7 +85,7 @@
 }
 
 .logo-slide:hover {
-  transform: scale(1.05) translateY(var(--translate-y, 0)); /* Maintain vertical offset on hover */
+  transform: scale(1.05) translateY(var(--translate-y, 0));
 }
 
 .logo-slide:hover img {

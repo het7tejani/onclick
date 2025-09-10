@@ -14,18 +14,9 @@ import badge3 from '../../assets/services/web/3.png';
 import badge4 from '../../assets/services/web/4.png';
 import mainImg from '../../assets/services/web/main.jpg';
 
-import pwaImg from '../../assets/services/web/Progressive Web Apps.png';
-import spaImg from '../../assets/services/web/Single Page Applications.png';
-import serverlessImg from '../../assets/services/web/Serverless Architecture.png';
-import apiImg from '../../assets/services/web/API Development.png';
-import securityImg from '../../assets/services/web/Security Best Practices.png';
-import seoImg from '../../assets/services/web/SEO Optimization.png';
-import wcagImg from '../../assets/services/web/Web Accessibility.png';
-
 import problemSolvingImg from '../../assets/services/web/Problem-solving.png';
 import attentionToDetailImg from '../../assets/services/web/Attention to detail.png';
 import continuousLearningImg from '../../assets/services/web/Continuous learning.png';
-// import timeManagementImg from '../../assets/services/web/Time management.png';
 
 import frontendImg from '../../assets/services/web/frontend Development.png';
 import backendImg from '../../assets/services/web/backend Development.png';
@@ -40,26 +31,20 @@ const badges = [
     { src: badge4, alt: 'Badge 4' },
 ];
 
-const sidebarItemsData = [
-    { key: 'PWA', title: 'Progressive Web Apps (PWA)', desc: 'Websites that behave like apps' },
-    { key: 'SPA', title: 'Single Page Applications (SPA)', desc: 'Only one HTML page, dynamic updates (React, Vue)' },
-    { key: 'Serverless', title: 'Serverless Architecture', desc: 'No need to manage servers manually (AWS Lambda, Firebase Functions)' },
-    { key: 'API', title: 'API Development', desc: 'RESTful APIs, GraphQL APIs' },
-    { key: 'Security', title: 'Security Best Practices', desc: 'SSL, HTTPS, secure authentication (OAuth2.0, JWT), protection against XSS, CSRF' },
-    { key: 'SEO', title: 'SEO Optimization', desc: 'Making web content search-engine friendly' },
-    { key: 'WCAG', title: 'Web Accessibility (WCAG Standards)', desc: 'Ensuring websites are usable by everyone, including people with disabilities' },
+const showcaseFeatures = [
+    { key: 'PWA', title: 'Progressive Web Apps (PWA)', desc: 'Deliver an app-like experience directly in the browser. PWAs are fast, reliable, and engaging, with features like offline access and push notifications. We build PWAs that combine the best of web and mobile, increasing user retention and accessibility.' },
+    { key: 'SPA', title: 'Single Page Applications (SPA)', desc: 'Create fluid, fast, and responsive user experiences with SPAs. Using frameworks like React, Angular, and Vue, we build applications that load a single HTML page and dynamically update content as the user interacts with it, eliminating page reloads and providing a seamless desktop-like feel.' },
+    { key: 'Serverless', title: 'Serverless Architecture', desc: 'Reduce infrastructure overhead and scale effortlessly with serverless architecture. We leverage platforms like AWS Lambda and Google Cloud Functions to build backends that run code in response to events, so you only pay for the compute time you consume, without managing any servers.' },
+    { key: 'API', title: 'API Development', desc: 'Connect your applications and services with robust, secure, and well-documented APIs. We specialize in building both RESTful and GraphQL APIs that serve as the backbone for your web and mobile applications, enabling seamless data exchange and integration.' },
+    { key: 'Security', title: 'Security Best Practices', desc: 'Security is at the core of our development process. We implement best practices including SSL/HTTPS, secure authentication (OAuth 2.0, JWT), and protection against common vulnerabilities like XSS and CSRF to ensure your application and user data are always safe.' },
+    { key: 'SEO', title: 'SEO Optimization', desc: 'Build websites that rank high on search engines. Our development process includes technical SEO best practices such as semantic HTML, structured data, mobile-first design, and fast load times to improve your visibility and drive organic traffic.' },
+    { key: 'WCAG', title: 'Web Accessibility (WCAG Standards)', desc: 'We build inclusive digital experiences by adhering to Web Content Accessibility Guidelines (WCAG). Our websites are designed to be usable by everyone, including people with disabilities, ensuring equal access to information and functionality.' },
 ];
-
-const imageContents = {
-    PWA: pwaImg, SPA: spaImg, Serverless: serverlessImg, API: apiImg, 
-    Security: securityImg, SEO: seoImg, WCAG: wcagImg
-};
 
 const softSkillsData = [
     { title: 'Problem-solving', desc: 'We deliver projects on schedule through effective prioritization and workflow optimization. Our agile methodologies ensure efficient use of time and resources.', img: problemSolvingImg },
     { title: 'Attention to detail', desc: 'We deliver projects on schedule through effective prioritization and workflow optimization. Our agile methodologies ensure efficient use of time and resources.', img: attentionToDetailImg },
     { title: 'Continuous learning', desc: 'Wrike supports marketing and creative teams as they create projects, campaigns, and assets of every kind — all from one place. Streamline requests and visualize results, plans, and workloads.', img: continuousLearningImg },
-    // { title: 'Time management', desc: 'We deliver projects on schedule through effective prioritization and workflow optimization. Our agile methodologies ensure efficient use of time and resources.Our agile methodologies ensure efficient use of time and resources.', img: timeManagementImg }
 ];
 
 const techSectionsData = [
@@ -84,8 +69,8 @@ const WebDevelopmentPage = () => {
             />
 
             <FeatureShowcase
-                sidebarItems={sidebarItemsData}
-                imageMap={imageContents}
+                title="Core Web Technologies"
+                features={showcaseFeatures}
             />
 
             <CardGrid

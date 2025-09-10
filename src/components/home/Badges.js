@@ -7,18 +7,26 @@ import badge4 from '../../assets/home/logo above footer/4.png';
 import badge5 from '../../assets/home/logo above footer/5.png';
 import badge6 from '../../assets/home/logo above footer/6.png';
 
+const badgesData = [
+    { src: badge1, alt: 'Top Web Developers Clutch Badge' },
+    { src: badge2, alt: 'GoodFirms Top Development Company Badge' },
+    { src: badge3, alt: 'Top Development Company Badge' },
+    { src: badge4, alt: 'Top Rated on Upwork Badge' },
+    { src: badge5, alt: 'Top App Developers Badge' },
+    { src: badge6, alt: 'Top Digital Agency Badge' }
+];
+
 const Badges = () => {
     return (
         <div className="badges-background">
             <section className="container">
                 <div className="badges-container">
                     <div className="badges-flex">
-                        <div className="badge-flex-item"><img src={badge1} alt="Badge 1" className="badge-image" /></div>
-                        <div className="badge-flex-item"><img src={badge2} alt="Badge 2" className="badge-image" /></div>
-                        <div className="badge-flex-item"><img src={badge3} alt="Badge 3" className="badge-image" /></div>
-                        <div className="badge-flex-item"><img src={badge4} alt="Badge 4" className="badge-image" /></div>
-                        <div className="badge-flex-item"><img src={badge5} alt="Badge 5" className="badge-image" /></div>
-                        <div className="badge-flex-item"><img src={badge6} alt="Badge 6" className="badge-image" /></div>
+                        {badgesData.map((badge, index) => (
+                             <div className="badge-flex-item" key={index}>
+                                <img src={badge.src} alt={badge.alt} className="badge-image" loading="lazy" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

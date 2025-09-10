@@ -42,7 +42,7 @@ const ServiceDetail = ({ section, imagePosition }) => {
                 </div>
             </div>
             <div className="image-column">
-                <img src={img} alt={title} />
+                <img src={img} alt={title} loading="lazy" />
             </div>
         </section>
     );

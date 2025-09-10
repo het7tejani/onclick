@@ -1,9 +1,34 @@
 import React from 'react';
 import './PolicyPage.css';
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const PrivacyPolicyPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Privacy Policy",
+            "item": "https://www.onclickinfotech.com/privacy-policy"
+        }]
+    };
+
     return (
         <div className="policy-page-wrapper">
+            <SEO 
+              title="Privacy Policy"
+              description="Read the Onclick Infotech Privacy Policy to understand how we collect, use, and protect your personal information when you use our services and website."
+              url="/privacy-policy"
+            />
+            <StructuredData data={breadcrumbData} />
+
             <div className="policy-container">
                 <div className="policy-content">
                     <h1>Privacy Policy</h1>

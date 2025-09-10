@@ -15,15 +15,6 @@ import badgeChatbot from '../../assets/services/mobile-app/Chatbot.png';
 import badgeVR from '../../assets/services/mobile-app/Virtual Reality.png';
 import badgeGeo from '../../assets/services/mobile-app/Geolocation.png';
 
-// Feature Showcase
-import vrImg from '../../assets/services/mobile-app/Virtual Reality (VR).png';
-import blockchainImg from '../../assets/services/mobile-app/Blockchain App Development.png';
-import beaconImg from '../../assets/services/mobile-app/Beacon Technology Integration.png';
-import chatbotImg from '../../assets/services/mobile-app/Chatbot App Development.png';
-import aiImg from '../../assets/services/mobile-app/AI & Machine Learning Mobile Apps.png';
-import geolocationImg from '../../assets/services/mobile-app/Geolocation-Based App Development.png';
-import pushImg from '../../assets/services/mobile-app/Push Notifications Integration.png';
-
 // Card Grid
 import uiuxImg from '../../assets/services/mobile-app/UIUX Design.png';
 // import apiImg from '../../assets/services/mobile-app/API Integration.png';
@@ -45,21 +36,15 @@ const heroBadges = [
     { src: badgeGeo, alt: 'Geolocation' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'VRApp', title: 'Virtual Reality (VR)', desc: 'Building interactive VR apps that provide fully immersive virtual environments' },
-    { key: 'BlockchainApp', title: 'Blockchain App Development', desc: 'Developing decentralized apps (dApps) for secure and transparent transactions' },
-    { key: 'BeaconTech', title: 'Beacon Technology Integration', desc: 'Leveraging Bluetooth Low Energy (BLE) beacons for location-based services and notifications' },
-    { key: 'Chatbots', title: 'Chatbot App Development', desc: 'Integrating AI-powered chatbots into mobile apps for enhanced user engagement and support' },
-    { key: 'AIApp', title: 'AI & Machine Learning Mobile Apps', desc: 'Building intelligent apps that leverage machine learning models for personalized experiences' },
-    { key: 'Geolocation', title: 'Geolocation-Based App Development', desc: 'Creating apps with real-time location tracking, geofencing, and map integrations' },
-    { key: 'PushNotifications', title: 'Push Notifications Integration', desc: 'Implementing real-time push notifications to keep users engaged and informed' },
+const showcaseFeatures = [
+    { key: 'VRApp', title: 'Virtual Reality (VR)', desc: 'Step into the future with immersive VR applications. We create stunning, interactive virtual reality experiences for training, gaming, marketing, and more. Our VR apps are designed to be engaging, realistic, and optimized for performance on leading VR hardware.' },
+    { key: 'BlockchainApp', title: 'Blockchain App Development', desc: 'Leverage the power of decentralization with our custom blockchain app solutions. We build secure and transparent decentralized applications (dApps) for various use cases, including supply chain management, digital identity, and secure financial transactions, ensuring data integrity and trust.' },
+    { key: 'BeaconTech', title: 'Beacon Technology Integration', desc: 'Enhance the user experience with location-aware features. We integrate Bluetooth Low Energy (BLE) beacon technology into mobile apps to enable proximity marketing, indoor navigation, and contextual notifications, creating personalized and engaging interactions for your users.' },
+    { key: 'Chatbots', title: 'Chatbot App Development', desc: 'Improve customer engagement and support with intelligent, AI-powered chatbots. We integrate sophisticated chatbots into your mobile apps to provide instant answers, guide users through processes, and offer 24/7 assistance, reducing your support overhead.' },
+    { key: 'AIApp', title: 'AI & Machine Learning Mobile Apps', desc: 'Build smarter applications that learn and adapt. We develop AI and machine learning-powered mobile apps that offer personalized recommendations, predictive insights, and intelligent automation, delivering a unique and powerful user experience.' },
+    { key: 'Geolocation', title: 'Geolocation-Based App Development', desc: 'Create powerful, location-aware applications. Our expertise includes real-time tracking, geofencing, and interactive map integrations. We build apps for logistics, social networking, and on-demand services that connect users with the world around them.' },
+    { key: 'PushNotifications', title: 'Push Notifications Integration', desc: 'Keep your users engaged and informed with timely, relevant push notifications. We implement robust notification systems that allow you to send targeted alerts, promotions, and updates directly to your users\' devices, driving retention and user activity.' },
 ];
-
-const showcaseImageMap = {
-    VRApp: vrImg, BlockchainApp: blockchainImg, BeaconTech: beaconImg,
-    Chatbots: chatbotImg, AIApp: aiImg, Geolocation: geolocationImg,
-    PushNotifications: pushImg
-};
 
 const servicesCards = [
     { title: 'UI/UX Design', desc: 'We prioritize intuitive user journeys and modern aesthetics. Our mobile UI/UX experts ensure that your app is not only functional but also visually appealing and easy to navigate.', img: uiuxImg },
@@ -91,8 +76,8 @@ const MobileAppDevelopmentPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Advanced Mobile App Capabilities"
+                features={showcaseFeatures}
             />
             
             <CardGrid

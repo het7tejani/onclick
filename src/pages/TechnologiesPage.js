@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './TechnologiesPage.css'
 import Hero from '../components/home/Hero';
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 
 // It is assumed you have added these assets to your project directory
 
 
-import heroDashboardImage from '../assets/home/success story.png';
+import heroDashboardImage from '../assets/technology/hero.avif';
 import mobileImg from '../assets/technologies/mobile.png';
 import frontendImg from '../assets/technologies/frontend.png';
 import backendImg from '../assets/technologies/backend.png';
@@ -61,11 +63,35 @@ const techData = [
 ];
 
 const TechnologiesPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }]
+    };
+
     return (
         <div className="technologies-page">
+            <SEO 
+              title="Our Technology Stack"
+              description="We leverage modern technologies like React, Node.js, Flutter, and cloud platforms like AWS to build cutting-edge solutions. Discover our full tech stack."
+              url="/technologies"
+              image={heroDashboardImage}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <Hero 
                 title="Technologies of Onclick Infotech"
-                description="Onclick Infotech uses modern technologies like React.js, Node.js, PHP, and Laravel for web development, and Flutter, React Native, Swift, and Kotlin for mobile app development."
+                description="Onclick Infotech uses modern technologies like React.js, Node.js, PHP, and Laravel for web development, and Flutter, React Native, Swift, and Kotlin for mobile app development. They design with Figma and Adobe XD, manage databases with MySQL, MongoDB, and Firebase, and leverage AWS for cloud solutions. They also explore AI, machine learning, and blockchain for innovative projects."
                 buttonText="Get Started"
                 buttonLink="/contact"
                 image={heroDashboardImage}
@@ -85,7 +111,7 @@ const TechnologiesPage = () => {
                     <div className={`services-grid-box ${tech.area}`} key={tech.area}>
                         <div className="ideas-sec-hover">
                             <div className="first-ideas">
-                                <img src={tech.image} alt={tech.title} />
+                                <img src={tech.image} alt={tech.title} loading="lazy" />
                             </div>
                             <div className="second-ideas">
                                 <h2>{tech.title}</h2>

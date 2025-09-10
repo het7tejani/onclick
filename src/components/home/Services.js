@@ -59,7 +59,7 @@ const Services = () => {
                     {servicesData.map((service, index) => (
                         <div className="service-card" key={index}>
                             <div className="heading-services-card">
-                                <div className="icon-image"><img src={service.icon} alt={`${service.title} icon`} /></div>
+                                <div className="icon-image"><img src={service.icon} alt={`${service.title} icon`} loading="lazy" /></div>
                                 <h3>{service.title}</h3>
                             </div>
                             <p>{service.description}</p>

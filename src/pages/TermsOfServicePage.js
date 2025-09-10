@@ -1,9 +1,34 @@
 import React from 'react';
 import './PolicyPage.css';
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 
 const TermsOfServicePage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Terms of Service",
+            "item": "https://www.onclickinfotech.com/terms-of-service"
+        }]
+    };
+
     return (
         <div className="policy-page-wrapper">
+            <SEO 
+              title="Terms of Service"
+              description="Review the Terms of Service for Onclick Infotech. Understand the rules and guidelines for using our website and engaging with our services."
+              url="/terms-of-service"
+            />
+            <StructuredData data={breadcrumbData} />
+
             <div className="policy-container">
                 <div className="policy-content">
                     <h1>Terms of Service</h1>

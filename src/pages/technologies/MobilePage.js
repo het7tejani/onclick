@@ -13,14 +13,6 @@ import badge1 from '../../assets/technology/mobile/main-page-logo-1.png';
 import badge2 from '../../assets/technology/mobile/main-page-logo-2.png';
 import badge3 from '../../assets/technology/mobile/main-page-logo-3.png';
 
-import featureIosAndroid from '../../assets/technology/mobile/ios & android.svg';
-import featureCross from '../../assets/technology/mobile/Cross-Platform Apps.svg';
-import featureSecurity from '../../assets/technology/mobile/Security.png';
-import featureTesting from '../../assets/technology/mobile/Testing & QA.svg';
-import featureAws from '../../assets/technology/mobile/Firebase, AWS, Node.js.png';
-import featureStore from '../../assets/technology/mobile/App Store & Play Store.png';
-import featureMaintenance from '../../assets/technology/mobile/Maintenance & Updates.svg';
-
 import cardLangs from '../../assets/technology/mobile/pogramming languages - kotlin.jpg';
 import cardFrameworks from '../../assets/technology/mobile/framework & tools.png';
 // import cardBackend from '../../assets/technology/mobile/Backend & Cloud.jpg';
@@ -39,20 +31,15 @@ const heroBadges = [
     { src: badge3, alt: 'Badge 3' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'IOS', title: 'iOS & Android', desc: 'Platform-specific apps for optimal performance and hardware integration.' },
-    { key: 'cross', title: 'Cross-Platform Apps', desc: 'Single codebase to deploy on both iOS and Android, reducing development time.' },
-    { key: 'Security', title: 'Security', desc: 'Encryption, OAuth, JWT. Protects user data and prevents breaches.' },
-    { key: 'Testing', title: 'Testing & QA', desc: 'Unit Tests, UI Tests (Espresso, XCTest), Beta Testing' },
-    { key: 'AWS', title: 'Firebase, AWS, Node.js', desc: 'Cloud services for data storage, authentication, and serverless functions' },
-    { key: 'Store', title: 'App Store & Play Store', desc: 'Requires compliance with guidelines (e.g., privacy policies, ASO)' },
-    { key: 'Maintenance', title: 'Maintenance & Updates', desc: 'Crash Analytics (Crashlytics), Feature Rollouts' },
+const showcaseFeatures = [
+    { key: 'IOS', title: 'iOS & Android Native', desc: 'We build platform-specific native applications for iOS (Swift) and Android (Kotlin) to deliver the highest level of performance, security, and user experience. Native development allows us to fully leverage device features and provide a seamless integration with the operating system.' },
+    { key: 'cross', title: 'Cross-Platform Apps', desc: 'For businesses looking to reach a wider audience efficiently, we develop cross-platform applications using frameworks like React Native and Flutter. This approach allows us to write a single codebase that runs on both iOS and Android, reducing development time and cost without compromising quality.' },
+    { key: 'Security', title: 'Mobile App Security', desc: 'Security is paramount in our mobile app development process. We implement best practices such as data encryption, secure authentication using OAuth and JWT, and code obfuscation to protect user data and prevent unauthorized access.' },
+    { key: 'Testing', title: 'Testing & QA', desc: 'We ensure our mobile apps are bug-free and perform flawlessly through rigorous testing. Our QA process includes unit testing, UI testing with tools like Espresso and XCTest, and beta testing through platforms like TestFlight and Google Play Console.' },
+    { key: 'AWS', title: 'Backend & Cloud Integration', desc: 'Our mobile apps are powered by robust and scalable backends. We use cloud services like Firebase for real-time data and authentication, and build custom backends with Node.js hosted on AWS or Google Cloud to handle complex business logic.' },
+    { key: 'Store', title: 'App Store & Play Store Deployment', desc: 'We manage the entire submission process for the Apple App Store and Google Play Store. This includes preparing app listings, managing certificates, and ensuring compliance with all platform guidelines, including privacy policies and App Store Optimization (ASO).' },
+    { key: 'Maintenance', title: 'Maintenance & Updates', desc: 'Post-launch, we provide ongoing maintenance and support to ensure your app remains up-to-date and performs optimally. We use crash analytics tools like Firebase Crashlytics to monitor stability and roll out new features and updates seamlessly.' },
 ];
-
-const showcaseImageMap = {
-    IOS: featureIosAndroid, cross: featureCross, Security: featureSecurity, Testing: featureTesting,
-    AWS: featureAws, Store: featureStore, Maintenance: featureMaintenance
-};
 
 const servicesCards = [
     { title: 'Programming Languages', desc: 'We use Kotlin and Java for Android app development, ensuring native performance, clean architecture, and seamless user experiences.', img: cardLangs },
@@ -83,8 +70,8 @@ const MobilePage = () => {
             />
             
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Mobile Technology Features"
+                features={showcaseFeatures}
             />
             
             <CardGrid

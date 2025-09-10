@@ -21,53 +21,51 @@ import clientLogo20 from '../assets/about/logo/20.webp';
 import clientLogo21 from '../assets/about/logo/21.webp';
 import clientLogo22 from '../assets/about/logo/22.webp';
 
-// Using local logos with their corresponding alt tags for consistency.
-// The size and offset properties are kept from the original design to maintain the visual layout.
+// Logos data
 const allLogos = [
-    { url: clientLogo21, alt: 'HDFC Bank', size: 180, offsetY: '-25%' },
-    { url: clientLogo18, alt: 'SBI', size: 150, offsetY: '-5%' },
-    { url: clientLogo19, alt: 'GIF', size: 130, offsetY: '-40%' },
-    { url: clientLogo20, alt: 'Shah Investment', size: 120, offsetY: '45%' },
-    { url: clientLogo17, alt: 'Bandhan', size: 140, offsetY: '-10%' },
-    { url: clientLogo22, alt: 'Costa Coffee', size: 150, offsetY: '-30%' },
-    { url: clientLogo7, alt: 'Rajhans', size: 170, offsetY: '30%' },
-    { url: clientLogo8, alt: 'Cognizant', size: 160, offsetY: '-20%' },
-    { url: clientLogo9, alt: 'Patidar', size: 120, offsetY: '15%' },
-    { url: clientLogo10, alt: 'P.P.Savani', size: 120, offsetY: '-15%' },
-    { url: clientLogo2, alt: 'Icon', size: 150, offsetY: '40%' },
-    { url: clientLogo15, alt: 'BAPS', size: 140, offsetY: '-35%' },
-    { url: clientLogo16, alt: 'Gas mate', size: 130, offsetY: '50%' },
-    { url: clientLogo1, alt: 'Khalas', size: 140, offsetY: '-20%' },
-    { url: clientLogo12, alt: 'Shiksha', size: 110, offsetY: '10%' },
-    { url: clientLogo13, alt: 'CIJ', size: 160, offsetY: '35%' },
-    { url: clientLogo11, alt: 'Shiksha', size: 110, offsetY: '-45%' },
-    { url: clientLogo14, alt: 'RCloud', size: 140, offsetY: '5%' },
+  { url: clientLogo21, alt: 'HDFC Bank', size: 180, offsetY: '-25%' },
+  { url: clientLogo18, alt: 'SBI', size: 150, offsetY: '-5%' },
+  { url: clientLogo19, alt: 'GIF', size: 130, offsetY: '-40%' },
+  { url: clientLogo20, alt: 'Shah Investment', size: 120, offsetY: '45%' },
+  { url: clientLogo17, alt: 'Bandhan', size: 140, offsetY: '-10%' },
+  { url: clientLogo22, alt: 'Costa Coffee', size: 150, offsetY: '-30%' },
+  { url: clientLogo7, alt: 'Rajhans', size: 170, offsetY: '30%' },
+  { url: clientLogo8, alt: 'Cognizant', size: 160, offsetY: '-20%' },
+  { url: clientLogo9, alt: 'Patidar', size: 120, offsetY: '15%' },
+  { url: clientLogo10, alt: 'P.P.Savani', size: 120, offsetY: '-15%' },
+  { url: clientLogo2, alt: 'Icon', size: 150, offsetY: '40%' },
+  { url: clientLogo15, alt: 'BAPS', size: 140, offsetY: '-35%' },
+  { url: clientLogo16, alt: 'Gas mate', size: 130, offsetY: '50%' },
+  { url: clientLogo1, alt: 'Khalas', size: 140, offsetY: '-20%' },
+  { url: clientLogo12, alt: 'Shiksha', size: 110, offsetY: '10%' },
+  { url: clientLogo13, alt: 'CIJ', size: 160, offsetY: '35%' },
+  { url: clientLogo11, alt: 'Shiksha', size: 110, offsetY: '-45%' },
+  { url: clientLogo14, alt: 'RCloud', size: 140, offsetY: '5%' },
 ];
-  
+
 const TrustedBy = () => {
   return (
     <section className="logos-section">
-        <h2 className="logos-title">Trusted by CFOs and Leading Finance Teams</h2>
-        <div className="logos-container">
-            <div className="logos-track">
-                {[...allLogos, ...allLogos].map((logo, index) => (
-                  <div 
-                    className="logo-slide" 
-                    key={`${logo.alt}-${index}`} 
-                    style={{ 
-                      width: `${logo.size}px`, 
-                      height: `${logo.size}px`,
-                      '--translate-y': logo.offsetY,
-                      transform: `translateY(${logo.offsetY})`
-                    }}
-                  >
-                    <img src={logo.url} alt={logo.alt} />
-                  </div>
-                ))}
+      <h2 className="logos-title">Trusted by CFOs and Leading Finance Teams</h2>
+      <div className="logos-container">
+        <div className="logos-track">
+          {[...allLogos, ...allLogos].map((logo, index) => (
+            <div
+              className="logo-slide"
+              key={`${logo.alt}-${index}`}
+              style={{
+                width: `${logo.size}px`,
+                height: `${logo.size}px`,
+                '--translate-y': logo.offsetY,
+              }}
+            >
+              <img src={logo.url} alt={logo.alt} loading="lazy" />
             </div>
+          ))}
         </div>
+      </div>
     </section>
   );
 };
-  
+
 export default TrustedBy;

@@ -14,14 +14,6 @@ import badgeCloud from '../../assets/services/cloud/badges/cloud computing.png';
 import badgeMicrosoft from '../../assets/services/cloud/badges/microsoft cloud solution.png';
 import badgeGoogle from '../../assets/services/cloud/badges/google cloud .png';
 
-// Feature Showcase
-import hybridImg from '../../assets/services/cloud/features/Hybrid Cloud Solutions.jpeg';
-import gcpImg from '../../assets/services/cloud/features/Google Cloud Platform Solutions.png';
-import kubernetesImg from '../../assets/services/cloud/features/Kubernetes & Containerization.png';
-import monitoringImg from '../../assets/services/cloud/features/Cloud Monitoring & Logging.png';
-import autoScalingImg from '../../assets/services/cloud/features/Auto-Scaling Solutions.png';
-import disasterImg from '../../assets/services/cloud/features/Cloud Disaster Recovery.png';
-
 // Card Grid
 import devsecopsImg from '../../assets/services/cloud/cards/DevSecOps  Security at Every Stage.png';
 import costImg from '../../assets/services/cloud/cards/Cloud Cost Optimization.png';
@@ -40,19 +32,14 @@ const heroBadges = [
     { src: badgeGoogle, alt: 'Google Cloud' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'HybridCloud', title: 'Hybrid Cloud Solutions', desc: 'Combining on-premise infrastructure with public and private clouds' },
-    { key: 'GCP', title: 'Google Cloud Platform Solutions', desc: 'Cloud services by Google for computing, data storage, and machine learning' },
-    { key: 'KubernetesDevOps', title: 'Kubernetes & Containerization', desc: 'Managing containers with Kubernetes for scalable, cloud-native applications' },
-    { key: 'MonitoringTools', title: 'Cloud Monitoring & Logging', desc: 'Implementing cloud-based monitoring for real-time performance tracking' },
-    { key: 'AutoScaling', title: 'Auto-Scaling Solutions', desc: 'Setting up automatic scaling of cloud resources based on load' },
-    { key: 'DisasterRecovery', title: 'Cloud Disaster Recovery', desc: 'Ensuring business continuity with reliable disaster recovery systems' },
+const showcaseFeatures = [
+    { key: 'HybridCloud', title: 'Hybrid Cloud Solutions', desc: 'We design and manage hybrid cloud environments that blend public and private clouds with on-premise infrastructure. This approach offers the perfect balance of security, scalability, and cost-efficiency, allowing you to keep sensitive data in-house while leveraging the power of the public cloud for other workloads.' },
+    { key: 'GCP', title: 'Google Cloud Platform Solutions', desc: 'Harness the power of Google\'s global infrastructure. We specialize in deploying and managing solutions on GCP, including services like Compute Engine for VMs, Kubernetes Engine for container orchestration, and BigQuery for large-scale data analytics. Our expertise ensures your GCP environment is optimized for performance and cost.' },
+    { key: 'KubernetesDevOps', title: 'Kubernetes & Containerization', desc: 'Modernize your application deployment with Docker containers and Kubernetes orchestration. We help you containerize your applications for portability and build robust Kubernetes clusters that automate scaling, deployment, and management, leading to more resilient and efficient systems.' },
+    { key: 'MonitoringTools', title: 'Cloud Monitoring & Logging', desc: 'Gain complete visibility into your cloud infrastructure. We implement comprehensive monitoring and logging solutions using tools like Prometheus, Grafana, and the ELK Stack. This allows for proactive issue detection, performance analysis, and security auditing across your entire environment.' },
+    { key: 'AutoScaling', title: 'Auto-Scaling Solutions', desc: 'Never over-provision again. We configure auto-scaling for your cloud resources, ensuring your application can handle traffic spikes seamlessly without manual intervention. This dynamic scaling optimizes both performance and cost, so you only pay for what you use.' },
+    { key: 'DisasterRecovery', title: 'Cloud Disaster Recovery', desc: 'Protect your business from unexpected downtime. We create and implement robust disaster recovery plans using cloud-native services. Our strategies include automated backups, multi-region failover, and regular testing to ensure your data is safe and your business can recover quickly from any incident.' },
 ];
-
-const showcaseImageMap = {
-    HybridCloud: hybridImg, GCP: gcpImg, KubernetesDevOps: kubernetesImg,
-    MonitoringTools: monitoringImg, AutoScaling: autoScalingImg, DisasterRecovery: disasterImg
-};
 
 const servicesCards = [
     { title: 'DevSecOps : Security at Every Stage', desc: 'Embed security within your DevOps pipeline. We apply security best practices throughout the development cycle, ensuring your infrastructure and applications are protected from vulnerabilities in real-time.', img: devsecopsImg },
@@ -70,7 +57,7 @@ const detailSections = [
 
 const CloudSolutionsPage = () => {
     return (
-        <div className="cloud-page">
+        <div className="cloud-solutions-page">
             <ServiceHero
                 preTitle="Cloud Solutions and DevOps"
                 title="Services for Cloud Solutions and DevOps"
@@ -83,8 +70,8 @@ const CloudSolutionsPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Key Cloud & DevOps Features"
+                features={showcaseFeatures}
             />
             
             <CardGrid

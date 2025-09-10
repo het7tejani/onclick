@@ -59,7 +59,7 @@ const Stats = () => {
         <div className="stats-grid">
           <div className="stat-item">
             <h1>
-              <AnimateCounter to={65} />
+              <AnimateCounter to={95} />
               <sup>+</sup>
             </h1>
             <h3>Trusted Clients</h3>

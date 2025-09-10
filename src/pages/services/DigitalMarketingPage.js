@@ -14,14 +14,6 @@ import badge1 from '../../assets/services/digital-marketing/1.png';
 import badge3 from '../../assets/services/digital-marketing/3.png';
 import badge4 from '../../assets/services/digital-marketing/4.png';
 
-// Feature Showcase
-import semImg from '../../assets/services/digital-marketing/Search Engine Marketing.png';
-import analyticsImg from '../../assets/services/digital-marketing/Analytics & Reporting.png';
-import ormImg from '../../assets/services/digital-marketing/Online Reputation Management.png';
-import affiliateImg from '../../assets/services/digital-marketing/Affiliate Marketing.png';
-import mobileImg from '../../assets/services/digital-marketing/Mobile Marketing.png';
-import conversionImg from '../../assets/services/digital-marketing/Conversion Rate Optimization.png';
-
 // Card Grid
 import roiImg from '../../assets/services/digital-marketing/ROI-focused strategies.png';
 import creativeImg from '../../assets/services/digital-marketing/In-house creative & analytics.png';
@@ -40,19 +32,14 @@ const heroBadges = [
     { src: badge4, alt: 'Badge 4' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'SEM', title: 'Search Engine Marketing (SEM)', desc: 'Drive traffic with paid ads on search engines (Google Ads, Bing Ads)' },
-    { key: 'Analytics', title: 'Analytics & Reporting', desc: 'Track performance and gain insights with tools like Google Analytics & Search Console' },
-    { key: 'ORM', title: 'Online Reputation Management (ORM)', desc: 'Monitor and enhance your online presence and customer perception' },
-    { key: 'Affiliate', title: 'Affiliate Marketing', desc: 'Drive traffic and sales through partner referrals and commission-based campaigns' },
-    { key: 'Mobile', title: 'Mobile Marketing', desc: 'Reach users on their smartphones with SMS campaigns, mobile apps, and in-app ads' },
-    { key: 'Conversion', title: 'Conversion Rate Optimization (CRO)', desc: 'Improve website performance and turn visitors into customers using data-driven techniques' },
+const showcaseFeatures = [
+    { key: 'SEM', title: 'Search Engine Marketing (SEM)', desc: 'Instantly boost your visibility and drive targeted traffic to your website. We manage comprehensive SEM campaigns on platforms like Google Ads and Bing Ads, focusing on keyword strategy, ad copywriting, and bid management to maximize your return on investment.' },
+    { key: 'Analytics', title: 'Analytics & Reporting', desc: 'Make data-driven decisions with confidence. We set up advanced tracking using Google Analytics, Google Tag Manager, and other tools to provide you with clear, actionable insights into your website traffic, user behavior, and campaign performance. Our custom reports make it easy to understand what\'s working and where to improve.' },
+    { key: 'ORM', title: 'Online Reputation Management (ORM)', desc: 'Your online reputation is your most valuable asset. We actively monitor your brand\'s presence across the web, manage reviews, and implement strategies to build a positive and trustworthy image. Our proactive approach helps mitigate negative feedback and showcases your brand in the best light.' },
+    { key: 'Affiliate', title: 'Affiliate Marketing', desc: 'Expand your reach and drive sales through a network of trusted partners. We develop and manage affiliate marketing programs, recruiting and incentivizing partners to promote your products or services. It\'s a performance-based model that grows with your success.' },
+    { key: 'Mobile', title: 'Mobile Marketing', desc: 'Connect with your audience on the devices they use most. Our mobile marketing strategies include SMS campaigns, in-app advertising, and mobile-optimized content to deliver your message effectively to users on the go, driving engagement and conversions.' },
+    { key: 'Conversion', title: 'Conversion Rate Optimization (CRO)', desc: 'Turn more website visitors into customers. Through A/B testing, user behavior analysis, and landing page optimization, we identify and eliminate friction points in your conversion funnel. Our data-driven approach ensures continuous improvement and a higher ROI.' },
 ];
-
-const showcaseImageMap = {
-    SEM: semImg, Analytics: analyticsImg, ORM: ormImg,
-    Affiliate: affiliateImg, Mobile: mobileImg, Conversion: conversionImg
-};
 
 const servicesCards = [
     { title: 'ROI-focused strategies', desc: 'Our ROI-focused strategies are designed to maximize business value by aligning every project with clear, measurable outcomes. Through smart resource allocation, data-driven planning, and agile execution, we ensure every initiative delivers strong returns and sustainable growth.', img: roiImg },
@@ -83,8 +70,8 @@ const DigitalMarketingPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Our Digital Marketing Arsenal"
+                features={showcaseFeatures}
             />
             
             <CardGrid

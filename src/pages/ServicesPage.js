@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./ServicesPage.css";
-import Hero from '../components/home/Hero';
-import heroDashboardImage from '../assets/home/success story.png';
+import Hero from "../components/home/Hero";
+import SEO from "../components/SEO";
+import StructuredData from "../components/StructuredData";
+import heroDashboardImage from "../assets/services/hero.avif";
 
 import webImg from "../assets/services/web.png";
 import mobileImg from "../assets/services/mobile.png";
@@ -13,30 +15,36 @@ const helpItemsData = [
   {
     step: "Step 01",
     title: "Discovery & Strategy",
-    description: "We start by understanding your vision. Our team collaborates with you to define project goals, identify challenges, and create a strategic roadmap. This phase includes market research, requirement analysis, and wireframing to ensure a solid foundation for your project.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop",
+    description:
+      "We start by understanding your vision. Our team collaborates with you to define project goals, identify challenges, and create a strategic roadmap. This phase includes market research, requirement analysis, and wireframing to ensure a solid foundation for your project.",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop",
     imageAlt: "Team collaborating on a project strategy",
     layout: "image-left",
-    link: "/contact"
+    link: "/contact",
   },
   {
     step: "Step 02",
     title: "Design & Development",
-    description: "Our designers and developers bring your ideas to life with clean, efficient code and intuitive user interfaces. Following agile methodologies, we build, test, and iterate to create a product that is not only functional but also scalable, secure, and beautiful.",
-    image: "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop",
+    description:
+      "Our designers and developers bring your ideas to life with clean, efficient code and intuitive user interfaces. Following agile methodologies, we build, test, and iterate to create a product that is not only functional but also scalable, secure, and beautiful.",
+    image:
+      "https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=2070&auto=format&fit=crop",
     imageAlt: "Developer coding on a modern computer setup",
     layout: "image-right",
-    link: "/services/web-development"
+    link: "/services/web-development",
   },
   {
     step: "Step 03",
     title: "Deployment & Support",
-    description: "We handle the entire deployment process to ensure a smooth launch. After your project goes live, we provide ongoing support and maintenance to keep it running at peak performance, ensuring long-term success and continuous improvement.",
-    image: "https://images.pexels.com/photos/115655/pexels-photo-115655.jpeg?cs=srgb&dl=pexels-lee-campbell-18167-115655.jpg&fm=jpg",
+    description:
+      "We handle the entire deployment process to ensure a smooth launch. After your project goes live, we provide ongoing support and maintenance to keep it running at peak performance, ensuring long-term success and continuous improvement.",
+    image:
+      "https://images.pexels.com/photos/115655/pexels-photo-115655.jpeg?cs=srgb&dl=pexels-lee-campbell-18167-115655.jpg&fm=jpg",
     imageAlt: "Man monitoring server dashboards",
     layout: "image-left",
-    link: "/services/cloud-solutions-and-devops"
-  }
+    link: "/services/cloud-solutions-and-devops",
+  },
 ];
 
 const HelpSection = () => {
@@ -74,19 +82,25 @@ const HelpSection = () => {
     <section className="help-section-container">
       <div className="help-section-header">
         <h2>How We Turn Ideas into Reality</h2>
-        <p>Our process is designed to be collaborative, transparent, and efficient, ensuring we deliver high-quality digital solutions that meet your goals.</p>
+        <p>
+          Our process is designed to be collaborative, transparent, and
+          efficient, ensuring we deliver high-quality digital solutions that
+          meet your goals.
+        </p>
       </div>
       <div className="help-items-wrapper">
         {helpItemsData.map((item, index) => (
           <div
-            className={`help-item ${item.layout === 'image-right' ? 'reverse' : ''}`}
+            className={`help-item ${
+              item.layout === "image-right" ? "reverse" : ""
+            }`}
             key={index}
             ref={(el) => (itemsRef.current[index] = el)}
           >
             <div className="help-image-wrapper">
               <div className="help-image-blob"></div>
               <div className="help-image-container">
-                <img src={item.image} alt={item.imageAlt} />
+                <img src={item.image} alt={item.imageAlt} loading="lazy" />
               </div>
             </div>
             <div className="help-text-container">
@@ -103,7 +117,6 @@ const HelpSection = () => {
     </section>
   );
 };
-
 
 const servicesData = [
   {
@@ -186,8 +199,11 @@ const ServicesPage = () => {
       const vh = window.innerHeight / 100;
       const animationDistance = (numItems - 1) * 80 * vh;
       const scrollAmount = -containerTop;
-      const progress = Math.max(0, Math.min(1, scrollAmount / animationDistance));
-      
+      const progress = Math.max(
+        0,
+        Math.min(1, scrollAmount / animationDistance)
+      );
+
       const cardsScrolled = progress * (numItems - 1);
       const activeIndex = Math.floor(cardsScrolled);
       const transitionProgress = cardsScrolled - activeIndex;
@@ -206,24 +222,24 @@ const ServicesPage = () => {
           translateY = -50;
           scale = 0.95;
         } else if (positionRelativeToActive === 0) {
-          scale = 1 - (transitionProgress * 0.05);
+          scale = 1 - transitionProgress * 0.05;
           translateY = -transitionProgress * 50;
           opacity = 1 - transitionProgress;
         } else {
           const currentPosition = positionRelativeToActive - transitionProgress;
           if (currentPosition < 4) {
-            scale = 1 - (currentPosition * 0.05);
+            scale = 1 - currentPosition * 0.05;
             translateY = currentPosition * 20;
             opacity = 1;
           } else {
             opacity = 0;
           }
         }
-        
+
         if (progress === 1 && index === numItems - 1) {
-            opacity = 1;
-            scale = 1;
-            translateY = 0;
+          opacity = 1;
+          scale = 1;
+          translateY = 0;
         }
 
         item.style.opacity = `${opacity}`;
@@ -236,16 +252,40 @@ const ServicesPage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [numItems]);
 
+  const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.onclickinfotech.com/"
+      }, {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.onclickinfotech.com/services"
+      }]
+  };
+
   return (
     <div className="services-page">
-      <Hero 
-          title="Services we provide in Onclick Infotech"
-          description="Onclick Infotech uses modern technologies like React.js, Node.js, PHP, and Laravel for web development, and Flutter, React Native, Swift, and Kotlin for mobile app development. They design with Figma and Adobe XD, manage databases with MySQL, MongoDB, and Firebase, and leverage AWS for cloud solutions. They also explore AI, machine learning, and blockchain for innovative projects."
-          buttonText="Get Started"
-          buttonLink="/contact"
-          image={heroDashboardImage}
-          imageAlt="Onclick Infotech Services"
-          imageOnLeft={false}
+      <SEO 
+        title="Our IT Services | Web, Mobile, Cloud & Digital Marketing"
+        description="Explore our comprehensive IT services, including web and mobile development, cloud solutions, and digital marketing. We turn your ideas into reality with our expert team."
+        url="/services"
+        image={heroDashboardImage}
+      />
+      <StructuredData data={breadcrumbData} />
+
+      <Hero
+        title="Services we provide in Onclick Infotech"
+        description="Onclick Infotech uses modern technologies like React.js, Node.js, PHP, and Laravel for web development, and Flutter, React Native, Swift, and Kotlin for mobile app development. They design with Figma and Adobe XD, manage databases with MySQL, MongoDB, and Firebase, and leverage AWS for cloud solutions. They also explore AI, machine learning, and blockchain for innovative projects."
+        buttonText="Get Started"
+        buttonLink="/contact"
+        image={heroDashboardImage}
+        imageAlt="Onclick Infotech Services"
+        imageOnLeft={false}
       />
 
       <HelpSection />
@@ -260,13 +300,13 @@ const ServicesPage = () => {
       <div
         className="image-stack-container"
         ref={containerRef}
-        style={{ height: `${(numItems - 1) * 80 + 100}vh` }}
+        style={{ "--numcards": servicesData.length }}
       >
         {servicesData.map((service, index) => (
           <div
             className="stack-item"
             key={service.title}
-            ref={(el) => (stackItemsRef.current[index] = el)}
+            style={{ "--index": index + 1 }}
           >
             <div className="inner-service-card">
               <div className="inner-left">
@@ -282,7 +322,7 @@ const ServicesPage = () => {
                 </Link>
               </div>
               <div className="inner-right">
-                <img src={service.image} alt={service.title} />
+                <img src={service.image} alt={service.title} loading="lazy" />
               </div>
             </div>
           </div>

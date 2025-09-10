@@ -14,14 +14,6 @@ import badgeCircleci from '../../assets/technology/infrastructure/circleci logo.
 import badgeApache from '../../assets/technology/infrastructure/apache.png';
 import badgeDocker from '../../assets/technology/infrastructure/docker logo.png';
 
-import featureDocker from '../../assets/technology/infrastructure/Docker.png';
-import featureK8s from '../../assets/technology/infrastructure/Kubernetes.png';
-import featureTerraform from '../../assets/technology/infrastructure/Terraform.png';
-import featureGitlab from '../../assets/technology/infrastructure/GitLab CICD.png';
-import featureCircleci from '../../assets/technology/infrastructure/CircleCI.png';
-import featureGcp from '../../assets/technology/infrastructure/Google Cloud Platform.png';
-import featureApache from '../../assets/technology/infrastructure/Apache HTTP Server.png';
-
 import cardIac from '../../assets/technology/infrastructure/Infrastructure-as-code.jpg';
 import cardCicd from '../../assets/technology/infrastructure/CICD Pipelines.png';
 import cardCloud from '../../assets/technology/infrastructure/Cloud Infrastructure.png';
@@ -41,20 +33,15 @@ const heroBadges = [
     { src: badgeDocker, alt: 'Docker' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'Docker', title: 'Docker', desc: 'Containerization platform to package applications and dependencies together' },
-    { key: 'Kubernetes', title: 'Kubernetes', desc: 'Container orchestration system for automating deployment, scaling, and management' },
-    { key: 'Terraform', title: 'Terraform', desc: 'Infrastructure as Code (IaC) tool for provisioning cloud resources' },
-    { key: 'GitLabCI', title: 'GitLab CI/CD', desc: 'Integrated continuous integration and delivery tool within GitLab' },
-    { key: 'CircleCI', title: 'CircleCI', desc: 'Continuous integration platform for automating development workflows' },
-    { key: 'GCP', title: 'Google Cloud Platform (GCP)', desc: 'Suite of cloud services by Google for computing, storage, ML, and more' },
-    { key: 'Apache', title: 'Apache HTTP Server', desc: 'Robust, open-source web server for hosting websites and services' },
+const showcaseFeatures = [
+    { key: 'Docker', title: 'Docker', desc: 'We use Docker to containerize applications, packaging them with all their dependencies into a standardized unit for software development. This ensures consistency across development, testing, and production environments, and simplifies deployment.' },
+    { key: 'Kubernetes', title: 'Kubernetes', desc: 'For managing containerized applications at scale, we use Kubernetes. This powerful open-source platform automates the deployment, scaling, and operation of application containers, providing a resilient and efficient infrastructure.' },
+    { key: 'Terraform', title: 'Terraform', desc: 'We manage infrastructure as code using Terraform. This allows us to define and provision data center infrastructure using a declarative configuration language, enabling us to build, change, and version infrastructure safely and efficiently.' },
+    { key: 'GitLabCI', title: 'GitLab CI/CD', desc: 'We leverage GitLab\'s integrated CI/CD capabilities to automate our software delivery pipeline. From code commits to testing and deployment, GitLab CI/CD enables us to build, test, and release software faster and more reliably within a single platform.' },
+    { key: 'CircleCI', title: 'CircleCI', desc: 'As a leading continuous integration platform, we use CircleCI to automate our development workflows. It provides fast feedback on code changes, enabling our teams to build and release high-quality software with confidence and speed.' },
+    { key: 'GCP', title: 'Google Cloud Platform (GCP)', desc: 'We build and deploy applications on Google Cloud Platform, leveraging its suite of services for computing, storage, data analytics, and machine learning. GCP provides a secure, scalable, and innovative foundation for our cloud-native solutions.' },
+    { key: 'Apache', title: 'Apache HTTP Server', desc: 'As one of the most widely used web servers, we rely on Apache for its robustness, flexibility, and extensive module support. We configure and manage Apache servers to host secure, high-performance websites and web applications.' },
 ];
-
-const showcaseImageMap = {
-    Docker: featureDocker, Kubernetes: featureK8s, Terraform: featureTerraform, GitLabCI: featureGitlab,
-    CircleCI: featureCircleci, GCP: featureGcp, Apache: featureApache
-};
 
 const servicesCards = [
     { title: 'Infrastructure as Code (IaC)', desc: 'We automate infrastructure provisioning using tools like Terraform and AWS CloudFormation—making deployments consistent, repeatable, and easy to manage across environments.', img: cardIac },
@@ -85,8 +72,8 @@ const InfrastructurePage = () => {
             />
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Key Infrastructure & DevOps Tools"
+                features={showcaseFeatures}
             />
             
             <CardGrid

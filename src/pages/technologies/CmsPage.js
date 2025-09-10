@@ -14,14 +14,6 @@ import badgeNorth from '../../assets/technology/cms/north flank.png';
 import badgeStainly from '../../assets/technology/cms/stainly.png';
 import badgeRedux from '../../assets/technology/cms/redux.png';
 
-import featureMagento from '../../assets/technology/cms/Adobe Commerce.png';
-import featureGhost from '../../assets/technology/cms/Ghost.png';
-import featureContentful from '../../assets/technology/cms/Contentful.png';
-import featureSanity from '../../assets/technology/cms/Sanity.io.png';
-import featureWebflow from '../../assets/technology/cms/Webflow CMS.png';
-import featureButter from '../../assets/technology/cms/ButterCMS.png';
-import featureKeystone from '../../assets/technology/cms/KeystoneJS.png';
-
 import cardWordpress from '../../assets/technology/cms/wordpress CMS.png';
 // import cardHeadless from '../../assets/technology/cms/Headless CMS.jfif';
 import cardEnterprise from '../../assets/technology/cms/Enterprise CMS.png';
@@ -41,20 +33,15 @@ const heroBadges = [
     { src: badgeRedux, alt: 'Redux' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'Magento', title: 'Adobe Commerce', desc: 'Robust open-source eCommerce platform with advanced features' },
-    { key: 'Ghost', title: 'Ghost', desc: 'Modern CMS focused on publishing and blogging, built on Node.js' },
-    { key: 'Contentful', title: 'Contentful', desc: 'Cloud-based headless CMS for managing structured content via APIs' },
-    { key: 'Sanity', title: 'Sanity.io', desc: 'Real-time headless CMS with structured content and flexible APIs' },
-    { key: 'Webflow', title: 'Webflow CMS', desc: 'Visual development platform with a built-in CMS' },
-    { key: 'ButterCMS', title: 'ButterCMS', desc: 'Headless CMS with quick setup and robust API for easy integration' },
-    { key: 'Keystone', title: 'KeystoneJS', desc: 'Open-source headless CMS powered by Node.js and GraphQL' },
+const showcaseFeatures = [
+    { key: 'Magento', title: 'Adobe Commerce (Magento)', desc: 'For ambitious e-commerce businesses, we leverage Adobe Commerce (formerly Magento). It\'s a powerful, open-source platform that offers unparalleled flexibility, advanced customization capabilities, and a rich feature set to build scalable and sophisticated online stores.' },
+    { key: 'Ghost', title: 'Ghost', desc: 'For modern publishing and blogging, we recommend Ghost. Built on Node.js, it offers a clean, minimalist writing experience and is incredibly fast. We use Ghost to create beautiful, content-focused websites and newsletters for creators and businesses.' },
+    { key: 'Contentful', title: 'Contentful', desc: 'Embracing a headless approach, we use Contentful to manage structured content via APIs. This allows for ultimate flexibility, enabling you to deliver content to any platform—be it a website, mobile app, or IoT device—while maintaining a single source of truth.' },
+    { key: 'Sanity', title: 'Sanity.io', desc: 'Sanity.io is our go-to for real-time, collaborative content management. This headless CMS provides a highly customizable editing environment and flexible APIs, allowing us to build bespoke content workflows and deliver data-driven digital experiences instantly.' },
+    { key: 'Webflow', title: 'Webflow CMS', desc: 'For clients who need a powerful visual development platform with a fully integrated CMS, we use Webflow. It allows us to design, build, and launch responsive websites with dynamic content, all without writing a single line of code, empowering marketing teams to manage content with ease.' },
+    { key: 'ButterCMS', title: 'ButterCMS', desc: 'When a fast and straightforward headless CMS is needed, we turn to ButterCMS. Its quick setup and developer-friendly API make it an excellent choice for integrating dynamic content into websites and applications built with any technology stack.' },
+    { key: 'Keystone', title: 'KeystoneJS', desc: 'Powered by Node.js and GraphQL, KeystoneJS is our choice for building scalable, data-driven applications with a powerful CMS backend. It provides a flexible schema-driven approach to content modeling, making it ideal for complex, custom projects.' },
 ];
-
-const showcaseImageMap = {
-    Magento: featureMagento, Ghost: featureGhost, Contentful: featureContentful, Sanity: featureSanity,
-    Webflow: featureWebflow, ButterCMS: featureButter, Keystone: featureKeystone
-};
 
 const servicesCards = [
     { title: 'WordPress', desc: 'The world\'s most popular CMS, ideal for websites, blogs, and e-commerce. We offer custom themes, plugins, and performance optimization tailored to your business goals.', img: cardWordpress },
@@ -87,8 +74,8 @@ const CmsPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Modern CMS Platforms"
+                features={showcaseFeatures}
             />
             
             <CardGrid

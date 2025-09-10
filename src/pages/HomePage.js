@@ -6,11 +6,13 @@ import InfoSection from '../components/home/InfoSection';
 import Services from '../components/home/Services';
 import Badges from '../components/home/Badges';
 import TrustedBy from '../components/TrustedBy';
+import AIAnalyzerSection from '../components/AIAnalyzerSection';
+import SEO from '../components/SEO';
+import StructuredData from '../components/StructuredData';
 import successStoryImage from '../assets/home/success story.png';
 import priorityImage from '../assets/home/priority.png';
 import historyImage from '../assets/home/history.png';
-import heroDashboardImage from '../assets/home/success story.png'
-// Removed the backgroundPattern import since we're not using it
+import heroDashboardImage from '../assets/home/hero.avif'
 
 const infoSectionsData = [
     {
@@ -61,8 +63,42 @@ const infoSectionsData = [
   ];
 
 const HomePage = () => {
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Onclick Infotech",
+        "url": "https://www.onclickinfotech.com",
+        "logo": "https://www.onclickinfotech.com/logo512.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-95635-75423",
+            "contactType": "Customer Service"
+        }
+    };
+
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.onclickinfotech.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.onclickinfotech.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    };
+
+
     return (
         <div className="homepage-wrapper">
+             <SEO 
+              title="Innovative Web & Mobile App Development"
+              description="Onclick Infotech delivers custom web and mobile solutions, AI/ML applications, and IT consulting to drive digital transformation. Partner with us for scalable, secure, and efficient systems."
+              url="/"
+              image={heroDashboardImage}
+            />
+            <StructuredData data={organizationSchema} />
+            <StructuredData data={websiteSchema} />
+
              <Hero 
                 title="Onclick Infotech"
                 description="We develop innovative software solutions, provide IT consulting, and deliver cutting-edge technology services. Our team specializes in web/mobile app development, cloud computing, cybersecurity, and AI solutions, helping businesses optimize operations and achieve digital transformation with scalable, secure, and efficient systems."
@@ -88,6 +124,7 @@ const HomePage = () => {
             </div>
             <TrustedBy />
             <Services />
+            <AIAnalyzerSection />
             <Badges />
         </div>
     );

@@ -14,14 +14,6 @@ import badgeMaria from '../../assets/technology/database/mariaDB logo.png';
 import badgeCouch from '../../assets/technology/database/couchDB.png';
 import badgeFirebase from '../../assets/technology/database/firebase.png';
 
-import featureSqlite from '../../assets/technology/database/SQLite.png';
-import featureMaria from '../../assets/technology/database/MariaDB.png';
-import featureCassandra from '../../assets/technology/database/Apache Cassandra.png';
-import featureNeo4j from '../../assets/technology/database/Neo4j.png';
-import featureFirebase from '../../assets/technology/database/Firebase Realtime Database.png';
-import featureCouch from '../../assets/technology/database/Apache CouchDB.png';
-import featureInflux from '../../assets/technology/database/InfluxDB.png';
-
 import cardIntegrity from '../../assets/technology/database/Transactional Integrity.png';
 // import cardQuery from '../../assets/technology/database/Query Optimization.png';
 import cardAccess from '../../assets/technology/database/Access Control & Security.png';
@@ -41,20 +33,15 @@ const heroBadges = [
     { src: badgeFirebase, alt: 'Firebase' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'SQLite', title: 'SQLite', desc: 'Lightweight, file-based relational DBMS for mobile systems' },
-    { key: 'MariaDB', title: 'MariaDB', desc: 'Community-developed fork of MySQL, focused on performance' },
-    { key: 'Cassandra', title: 'Apache Cassandra', desc: 'Distributed NoSQL DB for handling large amounts of data' },
-    { key: 'Neo4j', title: 'Neo4j', desc: 'Graph database built for querying and storing connected data' },
-    { key: 'FirebaseDB', title: 'Firebase Realtime Database', desc: 'Cloud-hosted NoSQL database for real-time syncing' },
-    { key: 'CouchDB', title: 'Apache CouchDB', desc: 'NoSQL database that uses JSON for documents and JS for queries' },
-    { key: 'InfluxDB', title: 'InfluxDB', desc: 'Time series database optimized for high write and query performance' },
+const showcaseFeatures = [
+    { key: 'SQLite', title: 'SQLite', desc: 'For mobile and embedded applications, we utilize SQLite, a lightweight, serverless, and self-contained SQL database engine. It\'s incredibly reliable and requires zero configuration, making it the perfect choice for local data storage on user devices.' },
+    { key: 'MariaDB', title: 'MariaDB', desc: 'As a community-developed fork of MySQL, MariaDB is our go-to for high-performance, open-source relational databases. We leverage its enhanced features and storage engines to build fast, scalable, and robust applications with a focus on reliability.' },
+    { key: 'Cassandra', title: 'Apache Cassandra', desc: 'When dealing with massive amounts of data across multiple servers, we rely on Apache Cassandra. This distributed NoSQL database offers linear scalability and high availability without a single point of failure, perfect for big data applications.' },
+    { key: 'Neo4j', title: 'Neo4j', desc: 'For applications that depend on highly connected data, we use Neo4j, a native graph database. It allows us to efficiently store, query, and traverse complex relationships, making it ideal for recommendation engines, fraud detection, and social networks.' },
+    { key: 'FirebaseDB', title: 'Firebase Realtime Database', desc: 'To build collaborative, real-time applications, we use Firebase Realtime Database. This cloud-hosted NoSQL database allows data to be synchronized across all clients in real-time and remains available even when an app goes offline.' },
+    { key: 'CouchDB', title: 'Apache CouchDB', desc: 'We use Apache CouchDB for its seamless data synchronization and support for offline-first applications. It stores data as JSON documents and uses JavaScript for queries, making it a flexible and developer-friendly choice for distributed applications.' },
+    { key: 'InfluxDB', title: 'InfluxDB', desc: 'For applications that handle time-stamped data, such as IoT monitoring and real-time analytics, we use InfluxDB. It\'s a purpose-built time series database optimized for high-speed data ingestion and complex queries over time.' },
 ];
-
-const showcaseImageMap = {
-    SQLite: featureSqlite, MariaDB: featureMaria, Cassandra: featureCassandra, Neo4j: featureNeo4j,
-    FirebaseDB: featureFirebase, CouchDB: featureCouch, InfluxDB: featureInflux
-};
 
 const servicesCards = [
     { title: 'Transactional Integrity', desc: 'We implement ACID-compliant systems that guarantee data accuracy and reliability across transactions, even in cases of power failure or errors.', img: cardIntegrity },
@@ -85,8 +72,8 @@ const DatabasePage = () => {
             />
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Specialized Database Technologies"
+                features={showcaseFeatures}
             />
             
             <CardGrid

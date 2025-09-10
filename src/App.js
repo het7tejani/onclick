@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.js';
-import HomePage from './pages/HomePage.js';
-import ServicesPage from './pages/ServicesPage.js';
-import TechnologiesPage from './pages/TechnologiesPage.js';
-import AboutPage from './pages/AboutPage.js';
-import CompanyPage from './pages/CompanyPage.js';
-import ContactPage from './pages/ContactPage.js';
 import Footer from './components/Footer.js';
-import WebDevelopmentPage from './pages/services/WebDevelopmentPage.js';
-import MobileAppDevelopmentPage from './pages/services/MobileAppDevelopmentPage.js';
-import DigitalMarketingPage from './pages/services/DigitalMarketingPage.js';
-import CloudSolutionsPage from './pages/services/CloudSolutionsPage.js';
-import FrontEndPage from './pages/technologies/FrontEndPage.js';
-import BackEndPage from './pages/technologies/BackEndPage.js';
-import CmsPage from './pages/technologies/CmsPage.js';
-import MobilePage from './pages/technologies/MobilePage.js';
-import DatabasePage from './pages/technologies/DatabasePage.js';
-import InfrastructurePage from './pages/technologies/InfrastructurePage.js';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage.js';
-import TermsOfServicePage from './pages/TermsOfServicePage.js';
-
 import './App.css';
-import { useEffect } from 'react';
+
+// Lazy load pages for better performance
+const HomePage = lazy(() => import('./pages/HomePage.js'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage.js'));
+const TechnologiesPage = lazy(() => import('./pages/TechnologiesPage.js'));
+const AboutPage = lazy(() => import('./pages/AboutPage.js'));
+const CompanyPage = lazy(() => import('./pages/CompanyPage.js'));
+const ContactPage = lazy(() => import('./pages/ContactPage.js'));
+const WebDevelopmentPage = lazy(() => import('./pages/services/WebDevelopmentPage.js'));
+const MobileAppDevelopmentPage = lazy(() => import('./pages/services/MobileAppDevelopmentPage.js'));
+const DigitalMarketingPage = lazy(() => import('./pages/services/DigitalMarketingPage.js'));
+const CloudSolutionsPage = lazy(() => import('./pages/services/CloudSolutionsPage.js'));
+const FrontEndPage = lazy(() => import('./pages/technologies/FrontEndPage.js'));
+const BackEndPage = lazy(() => import('./pages/technologies/BackEndPage.js'));
+const CmsPage = lazy(() => import('./pages/technologies/CmsPage.js'));
+const MobilePage = lazy(() => import('./pages/technologies/MobilePage.js'));
+const DatabasePage = lazy(() => import('./pages/technologies/DatabasePage.js'));
+const InfrastructurePage = lazy(() => import('./pages/technologies/InfrastructurePage.js'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage.js'));
+const TermsOfServicePage = lazy(() => import('./pages/TermsOfServicePage.js'));
+
+const LoadingFallback = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 160px)', fontSize: '1.2rem', color: '#475569' }}>
+        Loading page...
+    </div>
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -33,7 +39,6 @@ function ScrollToTop() {
       try {
         const element = document.getElementById(id);
         if (element) {
-          // Adjust for fixed header height
           const headerOffset = 80;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -61,26 +66,28 @@ function App() {
       <div className="App">
         <Header />
         <main className="main-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/web-development" element={<WebDevelopmentPage />} />
-            <Route path="/services/mobile-app-development" element={<MobileAppDevelopmentPage />} />
-            <Route path="/services/digital-marketing" element={<DigitalMarketingPage />} />
-            <Route path="/services/cloud-solutions-and-devops" element={<CloudSolutionsPage />} />
-            <Route path="/technologies" element={<TechnologiesPage />} />
-            <Route path="/technologies/front-end" element={<FrontEndPage />} />
-            <Route path="/technologies/back-end" element={<BackEndPage />} />
-            <Route path="/technologies/cms" element={<CmsPage />} />
-            <Route path="/technologies/mobile" element={<MobilePage />} />
-            <Route path="/technologies/database" element={<DatabasePage />} />
-            <Route path="/technologies/infra-devops" element={<InfrastructurePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/company" element={<CompanyPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-          </Routes>
+          <Suspense fallback={<LoadingFallback />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/web-development" element={<WebDevelopmentPage />} />
+              <Route path="/services/mobile-app-development" element={<MobileAppDevelopmentPage />} />
+              <Route path="/services/digital-marketing" element={<DigitalMarketingPage />} />
+              <Route path="/services/cloud-solutions-and-devops" element={<CloudSolutionsPage />} />
+              <Route path="/technologies" element={<TechnologiesPage />} />
+              <Route path="/technologies/front-end" element={<FrontEndPage />} />
+              <Route path="/technologies/back-end" element={<BackEndPage />} />
+              <Route path="/technologies/cms" element={<CmsPage />} />
+              <Route path="/technologies/mobile" element={<MobilePage />} />
+              <Route path="/technologies/database" element={<DatabasePage />} />
+              <Route path="/technologies/infra-devops" element={<InfrastructurePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/company" element={<CompanyPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

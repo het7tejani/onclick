@@ -184,7 +184,7 @@ const Header = () => {
       <header className="header-container">
         <div className="header-content">
           <div className="logo">
-            <Link to="/"><img src={logo} alt="Limelight Logo" /></Link>
+            <Link to="/"><img src={logo} alt="Onclick Infotech Logo" /></Link>
           </div>
           <nav className="nav-links">
             <ul>
@@ -268,7 +268,7 @@ const Header = () => {
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-header">
           <div className="logo">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}><img src={logo} alt="Limelight Logo" /></Link>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}><img src={logo} alt="Onclick Infotech Logo" /></Link>
           </div>
           <button
             className="close-btn"
@@ -306,54 +306,60 @@ const Header = () => {
                 key={item.name}
                 className={item.dropdown ? "accordion-item" : ""}
               >
-                <div
-                  className={`accordion-header ${
-                    openAccordion === item.name ? "open" : ""
-                  }`}
-                  onClick={() => item.dropdown && toggleAccordion(item.name)}
-                >
-                  <Link
-                    to={item.path}
-                    onClick={(e) => {
-                      if (item.dropdown) e.preventDefault();
-                      else setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.dropdown &&
-                    (openAccordion === item.name ? (
-                      <ArrowUpIcon />
-                    ) : (
-                      <ArrowDownIcon />
-                    ))}
-                </div>
-                {item.dropdown && (
+                {!item.dropdown ? (
+                   <Link to={item.path} onClick={() => setIsMobileMenuOpen(false)}>{item.name}</Link>
+                ) : (
+                <>
                   <div
-                    className={`accordion-content ${
+                    className={`accordion-header ${
                       openAccordion === item.name ? "open" : ""
                     }`}
+                    onClick={() => item.dropdown && toggleAccordion(item.name)}
                   >
-                    <ul>
-                      {dropdownContent[item.dropdown].map((column) => (
-                        <React.Fragment key={column.title}>
-                          <li className="mobile-dropdown-title">
-                            <Link to={column.path} onClick={() => setIsMobileMenuOpen(false)}>{column.title}</Link>
-                          </li>
-                          {column.links.map((link) => (
-                            <li key={link.name}>
-                              <Link
-                                to={`${column.path}${link.anchor}`}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                              >
-                                {link.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </React.Fragment>
+                    <Link
+                      to={item.path}
+                      onClick={(e) => {
+                        if (item.dropdown) e.preventDefault();
+                        else setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                    {item.dropdown &&
+                      (openAccordion === item.name ? (
+                        <ArrowUpIcon />
+                      ) : (
+                        <ArrowDownIcon />
                       ))}
-                    </ul>
                   </div>
+                  {item.dropdown && (
+                    <div
+                      className={`accordion-content ${
+                        openAccordion === item.name ? "open" : ""
+                      }`}
+                    >
+                      <ul>
+                        {dropdownContent[item.dropdown].map((column) => (
+                          <React.Fragment key={column.title}>
+                            <li className="mobile-dropdown-title">
+                              <Link to={column.path} onClick={() => setIsMobileMenuOpen(false)}>{column.title}</Link>
+                            </li>
+                            {column.links.map((link) => (
+                              <li key={link.name}>
+                                <Link
+                                  to={`${column.path}${link.anchor}`}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  {link.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </React.Fragment>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
                 )}
               </li>
             ))}

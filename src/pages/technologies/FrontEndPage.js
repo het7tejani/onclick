@@ -14,17 +14,8 @@ import badgeUxui from '../../assets/technology/front-end/UXUI.png';
 import badgeWebpack from '../../assets/technology/front-end/webpack logo.png';
 import badgeReact from '../../assets/technology/front-end/react.png';
 
-import featureCss from '../../assets/technology/front-end/CSS 3.png';
-import featureJs from '../../assets/technology/front-end/JavaScript (ES6+).png';
-import featureTailwind from '../../assets/technology/front-end/Tailwind CSS.png';
-import featureTs from '../../assets/technology/front-end/TypeScript tooling.png';
-import featureWebpack from '../../assets/technology/front-end/Webpack.png';
-import featureVite from '../../assets/technology/front-end/Vite.png';
-import featureNext from '../../assets/technology/front-end/Next.js.png';
-
 import cardCore from '../../assets/technology/front-end/core Technologies.png';
 import cardFrameworks from '../../assets/technology/front-end/Frameworks & Libraries.png';
-// import cardStyling from '../../assets/technology/front-end/Styling & UI Systems.png';
 import cardBuild from '../../assets/technology/front-end/Build & Optimization.png';
 
 import detailAngular from '../../assets/technology/front-end/Angular.png';
@@ -42,25 +33,19 @@ const heroBadges = [
     { src: badgeReact, alt: 'React' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'CSS', title: 'CSS 3', desc: 'Styling – Flexbox, Grid, animations, responsive design' },
-    { key: 'JavaScript', title: 'JavaScript (ES6+)', desc: 'Dynamic behavior – modern syntax, async/await, modules' },
-    { key: 'Tailwind', title: 'Tailwind CSS', desc: 'Utility-first CSS framework for rapid UI development' },
-    { key: 'TypeScript', title: 'TypeScript', desc: 'Typed superset of JavaScript – better tooling and error prevention' },
-    { key: 'Webpack', title: 'Webpack', desc: 'Module bundler – compiles JS, CSS, and assets into deployable files' },
-    { key: 'Vite', title: 'Vite', desc: 'Fast frontend build tool with instant dev server and HMR' },
-    { key: 'Next', title: 'Next.js', desc: 'React framework for SSR, static sites, and fullstack apps' },
+const showcaseFeatures = [
+    { key: 'CSS', title: 'CSS 3', desc: 'We create modern, responsive layouts using the latest CSS3 features. Our expertise includes Flexbox for one-dimensional layouts, Grid for two-dimensional layouts, and advanced animations and transitions to bring your user interfaces to life.' },
+    { key: 'JavaScript', title: 'JavaScript (ES6+)', desc: 'As the core of web interactivity, we write clean, modern JavaScript using ES6+ features like async/await, modules, and arrow functions. This ensures our applications are dynamic, efficient, and maintainable.' },
+    { key: 'Tailwind', title: 'Tailwind CSS', desc: 'For rapid UI development, we leverage Tailwind CSS, a utility-first framework. It allows us to build custom designs without leaving our HTML, resulting in faster development cycles and highly maintainable styling.' },
+    { key: 'TypeScript', title: 'TypeScript', desc: 'To build robust, scalable applications, we use TypeScript. As a typed superset of JavaScript, it helps us catch errors early in development, improve code quality, and provide a better developer experience with features like static typing and interfaces.' },
+    { key: 'Webpack', title: 'Webpack', desc: 'We use Webpack as our go-to module bundler for complex applications. It efficiently compiles JavaScript modules, CSS, images, and other assets into optimized bundles for production, with features like code splitting and tree shaking to improve performance.' },
+    { key: 'Vite', title: 'Vite', desc: 'For a faster and more streamlined development experience, we use Vite. Its native ES module support provides an instant server start and lightning-fast Hot Module Replacement (HMR), significantly speeding up our front-end workflow.' },
+    { key: 'Next', title: 'Next.js', desc: 'We build production-ready React applications with Next.js. This powerful framework offers features like server-side rendering (SSR) and static site generation (SSG), which are crucial for performance and SEO, as well as a seamless full-stack development experience.' },
 ];
-
-const showcaseImageMap = {
-    CSS: featureCss, JavaScript: featureJs, Tailwind: featureTailwind, TypeScript: featureTs,
-    Webpack: featureWebpack, Vite: featureVite, Next: featureNext
-};
 
 const servicesCards = [
     { title: 'Core Technologies', desc: 'We use HTML5, CSS3, and JavaScript (ES6+) as the foundation of all web interfaces, ensuring accessibility, responsiveness, and browser compatibility.', img: cardCore },
     { title: 'Frameworks & Libraries', desc: 'Our team specializes in React.js, Vue.js, and Next.js to create dynamic SPAs and SSR-enabled websites with seamless navigation and top-tier performance.', img: cardFrameworks },
-    // { title: 'Styling & UI Systems', desc: 'We design with Tailwind CSS, SASS, and component libraries like Material UI and ShadCN to ensure clean, scalable, and modern front-end designs.', img: cardStyling },
     { title: 'Build & Optimization', desc: 'Tools like Vite, Webpack, Babel, and Lighthouse help us ensure lightning-fast loads, code splitting, and continuous optimization of front-end assets.', img: cardBuild }
 ];
 
@@ -88,8 +73,8 @@ const FrontEndPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Core Front-End Technologies"
+                features={showcaseFeatures}
             />
             
             <CardGrid

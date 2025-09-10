@@ -185,30 +185,48 @@
   opacity: 0.9;
 }
 
-/* Stack animation styles */
-.image-stack-container {
-  position: relative;
-  margin-top: 5rem;
+:root {
+  --card-top-offset: 2rem; /* vertical offset for stacking */
+  --numcards: 4; /* update dynamically if needed */
 }
 
+/* Container */
+.image-stack-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), auto);
+  gap: 2rem;
+  margin: 5rem 0;
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  position: relative;
+}
+
+/* Each card wrapper */
 .stack-item {
   position: sticky;
-  top: 10vh; /* cards stick when reaching here */
+  top: 10vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border-radius: 40px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(138, 138, 138, 0.1);
-  will-change: transform, opacity;
+  border-radius: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  will-change: transform;
+  z-index: var(--index); /* 🔑 new card goes UNDER previous */
+  transform: translateY(calc(var(--index) * var(--card-top-offset)));
 }
 
+
+/* Inner card UI (kept from your design) */
 .inner-service-card {
   display: flex;
   height: 600px;
-  background: linear-gradient(to right, #eef5f9, white);
+  border-radius: 2rem;
+  overflow: hidden;
+  background: #fff; /* 🔑 solid bg prevents ghosting */
+  background: linear-gradient(to right, #eef5f9, #fff);
 }
 
+/* Left side */
 .inner-left {
   flex: 1;
   padding: 2rem 3rem;
@@ -252,7 +270,6 @@
   background-color: #1c5d88;
   color: white;
   padding: 12px 24px;
-  text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s;
 }
@@ -261,6 +278,7 @@
   background-color: #10486d;
 }
 
+/* Right side */
 .inner-right {
   flex: 1;
   overflow: hidden;
@@ -271,6 +289,50 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .inner-service-card {
+    flex-direction: column;
+    height: auto;
+  }
+  .inner-right {
+    order: -1;
+    height: 300px;
+  }
+  .inner-left {
+    padding: 2rem;
+  }
+}
+
+
+@supports (animation-timeline: works) {
+  .inner-service-card {
+    transform-origin: 50% 0%;
+    --duration: calc(var(--reverse-index0) * 1s);
+    --delay: calc(var(--index0) * 1s);
+
+    animation: var(--duration) linear scale var(--delay) forwards,
+               var(--duration) linear fadeout var(--delay) forwards;
+    animation-timeline: cards-scroll;
+  }
+
+  @keyframes scale {
+    to {
+      transform: scale(calc(1.05 - (0.05 * var(--reverse-index))));
+    }
+  }
+
+  @keyframes fadeout {
+    0%, 80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0; /* fully hide once next card is in */
+    }
+  }
+}
+
 
 /* Responsive */
 @media (max-width: 992px) {

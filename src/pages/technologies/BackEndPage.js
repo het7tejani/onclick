@@ -14,14 +14,6 @@ import badgeJwt from '../../assets/technology/back-end/JWT.png';
 import badgePhp from '../../assets/technology/back-end/php logo.png';
 import badgeFlask from '../../assets/technology/back-end/flask logo.png';
 
-import featureJwt from '../../assets/technology/back-end/JSON Web Tokens.png';
-import featureFastify from '../../assets/technology/back-end/Fastify.png';
-import featureDjango from '../../assets/technology/back-end/Django.png';
-import featureOauth from '../../assets/technology/back-end/OAuth 2.0.png';
-import featureFlask from '../../assets/technology/back-end/Flask.png';
-import featureSpring from '../../assets/technology/back-end/Spring Boot.png';
-import featureRuby from '../../assets/technology/back-end/Ruby on Rails.png';
-
 import cardCore from '../../assets/technology/back-end/core launguage.png';
 import cardFrameworks from '../../assets/technology/back-end/Frameworks & APIs.png';
 import cardDb from '../../assets/technology/back-end/database.png';
@@ -41,20 +33,15 @@ const heroBadges = [
     { src: badgeFlask, alt: 'Flask' },
 ];
 
-const showcaseSidebarItems = [
-    { key: 'JWT', title: 'JWT (JSON Web Tokens)', desc: 'Stateless authentication mechanism used for securely transmitting information' },
-    { key: 'Fastify', title: 'Fastify', desc: 'Fast and low overhead web framework for Node.js' },
-    { key: 'Django', title: 'Django', desc: 'High-level Python framework that encourages rapid development and clean design' },
-    { key: 'OAuth', title: 'OAuth 2.0', desc: 'Authorization framework enabling secure delegated access to resources' },
-    { key: 'Flask', title: 'Flask', desc: 'Lightweight Python microframework for small to medium web applications' },
-    { key: 'Spring', title: 'Spring Boot', desc: 'Java-based framework for building stand-alone, production-grade backend services' },
-    { key: 'RubyOnRails', title: 'Ruby on Rails', desc: 'Opinionated Ruby framework following convention over configuration' },
+const showcaseFeatures = [
+    { key: 'JWT', title: 'JWT (JSON Web Tokens)', desc: 'We implement stateless, secure authentication using JSON Web Tokens. JWTs are a compact, URL-safe means of representing claims to be transferred between two parties, making them ideal for authenticating APIs and securing single-page applications.' },
+    { key: 'Fastify', title: 'Fastify', desc: 'For applications that demand high performance, we use Fastify, a web framework for Node.js that boasts incredibly low overhead. It\'s designed to be highly extensible through plugins and provides a great developer experience without sacrificing speed.' },
+    { key: 'Django', title: 'Django', desc: 'Leveraging Python\'s "batteries-included" philosophy, Django allows for rapid development of secure and maintainable websites. We use its powerful ORM, admin interface, and built-in security features to build complex, data-driven applications quickly and efficiently.' },
+    { key: 'OAuth', title: 'OAuth 2.0', desc: 'We implement OAuth 2.0 to provide secure, delegated access to your application\'s resources. This industry-standard protocol allows third-party applications to access user data without exposing their credentials, enabling secure integrations with services like Google, Facebook, and more.' },
+    { key: 'Flask', title: 'Flask', desc: 'For projects that require simplicity and flexibility, we use Flask, a lightweight Python microframework. Flask provides the essentials for web development without imposing a rigid structure, making it perfect for building custom solutions, APIs, and smaller applications.' },
+    { key: 'Spring', title: 'Spring Boot', desc: 'When building enterprise-grade Java applications, we rely on Spring Boot. It simplifies the development of stand-alone, production-ready Spring applications with an opinionated approach to configuration, allowing us to build robust, scalable, and maintainable microservices and web apps.' },
+    { key: 'RubyOnRails', title: 'Ruby on Rails', desc: 'Following the "convention over configuration" principle, Ruby on Rails is our go-to for rapid application development. Its rich ecosystem of gems and elegant syntax allows us to build and launch full-featured web applications with impressive speed and efficiency.' },
 ];
-
-const showcaseImageMap = {
-    JWT: featureJwt, Fastify: featureFastify, Django: featureDjango, OAuth: featureOauth,
-    Flask: featureFlask, Spring: featureSpring, RubyOnRails: featureRuby
-};
 
 const servicesCards = [
     { title: 'Core Languages', desc: 'We specialize in Node.js, Python, and PHP for server-side logic, enabling fast, efficient, and maintainable back-end development.', img: cardCore },
@@ -87,8 +74,8 @@ const BackEndPage = () => {
             <div className="between-section-down"></div>
 
             <FeatureShowcase
-                sidebarItems={showcaseSidebarItems}
-                imageMap={showcaseImageMap}
+                title="Advanced Back-End Technologies"
+                features={showcaseFeatures}
             />
             
             <CardGrid

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo} from "react";
 import { Link } from "react-router-dom";
 import "./AboutPage.css";
 import SEO from "../components/SEO";
@@ -112,7 +112,7 @@ const faqData = [
 ];
 
 const Timeline = () => {
-  const timelineData = [
+  const timelineData = useMemo(() => [
     {
       year: "2019",
       title: "The Beginning",
@@ -155,7 +155,7 @@ const Timeline = () => {
         "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
       image: innovationImage,
     },
-  ];
+  ],[]);
 
   const sectionRef = useRef(null);
   const progressRef = useRef(null);

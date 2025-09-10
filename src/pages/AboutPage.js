@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo} from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import "./AboutPage.css";
 import SEO from "../components/SEO";
@@ -82,80 +82,83 @@ const faqData = [
     a: "Getting started is easy! Simply reach out to us through our <a href='/contact' style='color: var(--primary); text-decoration: underline;'>Contact Page</a> to schedule a free consultation. We'll discuss your project needs and outline the best path forward.",
   },
   {
-  q: "Where is Onclick Infotech located?",
-  a: "Onclick Infotech is headquartered in India, with a global client base spanning across the US, UK, and other regions. We serve businesses worldwide with our remote-first approach.",
-},
-{
-  q: "What makes Onclick Infotech different from other IT companies?",
-  a: "Our focus on innovation, client-first strategies, and end-to-end digital solutions sets us apart. We combine technical expertise with a deep understanding of business needs to deliver measurable results.",
-},
-{
-  q: "Does Onclick Infotech provide support after project delivery?",
-  a: "Absolutely! We believe in long-term partnerships. Our team offers continuous support, maintenance, and upgrades to ensure your software and applications run smoothly.",
-},
-{
-  q: "Can Onclick Infotech help with digital transformation?",
-  a: "Yes, digital transformation is one of our key strengths. From migrating legacy systems to modern cloud-based platforms, we help businesses embrace new technologies and achieve sustainable growth.",
-},
-{
-  q: "What technologies does Onclick Infotech specialize in?",
-  a: "Our expertise covers modern technologies such as React, Angular, Node.js, PHP, Python, AI/ML, cloud platforms (AWS, Azure, GCP), and robust mobile app frameworks like Flutter and React Native.",
-},
-{
-  q: "Does Onclick Infotech work with startups as well as enterprises?",
-  a: "Yes, we collaborate with businesses of all sizes—from innovative startups to large enterprises—offering scalable and flexible solutions tailored to each stage of growth.",
-},
-{
-  q: "How does Onclick Infotech ensure project quality?",
-  a: "We follow agile methodologies, rigorous testing practices, and continuous client feedback to deliver reliable, high-quality solutions on time and within budget.",
-},
+    q: "Where is Onclick Infotech located?",
+    a: "Onclick Infotech is headquartered in India, with a global client base spanning across the US, UK, and other regions. We serve businesses worldwide with our remote-first approach.",
+  },
+  {
+    q: "What makes Onclick Infotech different from other IT companies?",
+    a: "Our focus on innovation, client-first strategies, and end-to-end digital solutions sets us apart. We combine technical expertise with a deep understanding of business needs to deliver measurable results.",
+  },
+  {
+    q: "Does Onclick Infotech provide support after project delivery?",
+    a: "Absolutely! We believe in long-term partnerships. Our team offers continuous support, maintenance, and upgrades to ensure your software and applications run smoothly.",
+  },
+  {
+    q: "Can Onclick Infotech help with digital transformation?",
+    a: "Yes, digital transformation is one of our key strengths. From migrating legacy systems to modern cloud-based platforms, we help businesses embrace new technologies and achieve sustainable growth.",
+  },
+  {
+    q: "What technologies does Onclick Infotech specialize in?",
+    a: "Our expertise covers modern technologies such as React, Angular, Node.js, PHP, Python, AI/ML, cloud platforms (AWS, Azure, GCP), and robust mobile app frameworks like Flutter and React Native.",
+  },
+  {
+    q: "Does Onclick Infotech work with startups as well as enterprises?",
+    a: "Yes, we collaborate with businesses of all sizes—from innovative startups to large enterprises—offering scalable and flexible solutions tailored to each stage of growth.",
+  },
+  {
+    q: "How does Onclick Infotech ensure project quality?",
+    a: "We follow agile methodologies, rigorous testing practices, and continuous client feedback to deliver reliable, high-quality solutions on time and within budget.",
+  },
 ];
 
 const Timeline = () => {
-  const timelineData = useMemo(() => [
-    {
-      year: "2019",
-      title: "The Beginning",
-      description:
-        "Onclick Infotech was founded by a team of passionate tech enthusiasts with a shared vision to build exceptional digital products.",
-      image: historyImage,
-    },
-    {
-      year: "2020",
-      title: "First Major Project",
-      description:
-        "Successfully launched our first large-scale enterprise application, establishing our reputation for quality and reliability.",
-      image: projectImage,
-    },
-    {
-      year: "2021",
-      title: "Expanding Horizons",
-      description:
-        "Grew our team and expanded our service offerings to include cloud solutions and advanced digital marketing.",
-      image: expansionImage,
-    },
-    {
-      year: "2022",
-      title: "Global Reach",
-      description:
-        "Began serving international clients, building strong partnerships in the USA, UK, and beyond.",
-      image: globalImage,
-    },
-    {
-      year: "2024",
-      title: "Innovation Hub",
-      description:
-        "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
-      image: innovationImage,
-    },
-    {
-      year: "2025",
-      title: "International Reach",
-      description:
-        "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
-      image: innovationImage,
-    },
-  ],[]);
+  const timelineData = useMemo(
+    () => [
+      {
+        year: "2019",
+        title: "The Beginning",
+        description:
+          "Onclick Infotech was founded by a team of passionate tech enthusiasts with a shared vision to build exceptional digital products.",
+        image: historyImage,
+      },
+      {
+        year: "2020",
+        title: "First Major Project",
+        description:
+          "Successfully launched our first large-scale enterprise application, establishing our reputation for quality and reliability.",
+        image: projectImage,
+      },
+      {
+        year: "2021",
+        title: "Expanding Horizons",
+        description:
+          "Grew our team and expanded our service offerings to include cloud solutions and advanced digital marketing.",
+        image: expansionImage,
+      },
+      {
+        year: "2022",
+        title: "Global Reach",
+        description:
+          "Began serving international clients, building strong partnerships in the USA, UK, and beyond.",
+        image: globalImage,
+      },
+      {
+        year: "2024",
+        title: "Innovation Hub",
+        description:
+          "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
+        image: innovationImage,
+      },
+      {
+        year: "2025",
+        title: "International Level",
+        description:
+          "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
+        image: innovationImage,
+      },
+    ],
+    []
+  );
 
   const sectionRef = useRef(null);
   const progressRef = useRef(null);
@@ -194,7 +197,7 @@ const Timeline = () => {
       itemsRef.current.forEach((item, index) => {
         const dot = dotsRef.current[index];
         if (!item || !dot) return;
-        
+
         const itemRect = item.getBoundingClientRect();
         if (itemRect.top < screenCenter) {
           item.classList.add("is-scrolled-past");
@@ -248,7 +251,10 @@ const Timeline = () => {
                 key={index}
                 ref={(el) => (itemsRef.current[index] = el)}
               >
-                <div className="timeline-dot" ref={el => (dotsRef.current[index] = el)}></div>
+                <div
+                  className="timeline-dot"
+                  ref={(el) => (dotsRef.current[index] = el)}
+                ></div>
                 <div className="timeline-content">
                   <div className="timeline-image">
                     <img src={item.image} alt={item.title} loading="lazy" />
@@ -367,17 +373,21 @@ const FaqSection = () => {
                 >
                   <h3 className="faq-question-new">
                     <button
-                        onClick={() => toggleFaq(index)}
-                        aria-expanded={openIndex === index}
-                        aria-controls={`faq-answer-${index}`}
+                      onClick={() => toggleFaq(index)}
+                      aria-expanded={openIndex === index}
+                      aria-controls={`faq-answer-${index}`}
                     >
-                        <span>{faq.q}</span>
-                        <span className="faq-icon">
-                          {openIndex === index ? <MinusIcon /> : <PlusIcon />}
-                        </span>
+                      <span>{faq.q}</span>
+                      <span className="faq-icon">
+                        {openIndex === index ? <MinusIcon /> : <PlusIcon />}
+                      </span>
                     </button>
                   </h3>
-                  <div id={`faq-answer-${index}`} className="faq-answer-new" hidden={openIndex !== index}>
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="faq-answer-new"
+                    hidden={openIndex !== index}
+                  >
                     <div dangerouslySetInnerHTML={{ __html: faq.a }}></div>
                   </div>
                 </div>
@@ -406,38 +416,41 @@ const FaqSection = () => {
 };
 
 const AboutPage = () => {
-    const breadcrumbData = {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.onclickinfotech.com/"
-        }, {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About Us",
-            "item": "https://www.onclickinfotech.com/about"
-        }]
-    };
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.onclickinfotech.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About Us",
+        item: "https://www.onclickinfotech.com/about",
+      },
+    ],
+  };
 
-    const faqSchemaData = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqData.map(faq => ({
-            "@type": "Question",
-            "name": faq.q,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.a.replace(/<[^>]*>?/gm, '') // Strip HTML for schema
-            }
-        }))
-    };
+  const faqSchemaData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqData.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a.replace(/<[^>]*>?/gm, ""), // Strip HTML for schema
+      },
+    })),
+  };
 
   return (
     <div className="about-page">
-      <SEO 
+      <SEO
         title="About Us | Our Mission & Journey"
         description="Learn about Onclick Infotech's mission to empower businesses with transformative digital solutions. Discover our journey, our values, and the clients we've served."
         url="/about"

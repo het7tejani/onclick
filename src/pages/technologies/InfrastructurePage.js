@@ -1,5 +1,7 @@
 import React from 'react';
 import './InfrastructurePage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -60,8 +62,37 @@ const detailSections = [
 ];
 
 const InfrastructurePage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Infra & DevOps",
+            "item": "https://www.onclickinfotech.com/technologies/infra-devops"
+        }]
+    };
+
     return (
         <div className="infrastructure-page">
+            <SEO 
+              title="Infrastructure & DevOps Technologies | AWS, Docker & Kubernetes"
+              description="Our infrastructure and DevOps stack includes AWS, Docker, Kubernetes, and Terraform. We build automated, scalable, and resilient systems to accelerate your software delivery pipeline."
+              url="/technologies/infra-devops"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Infrastructure & DevOps"
                 title="Services for Scalable Business Growth"

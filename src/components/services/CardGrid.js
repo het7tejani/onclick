@@ -41,7 +41,7 @@ const CardGrid = ({ title, description, cards }) => {
                             <p className="text-sm">{card.desc}</p>
                         </div>
                         <div className="category-image">
-                            <img src={card.img} alt={card.title} />
+                            <img src={card.img} alt={card.title} loading="lazy" />
                         </div>
                     </div>
                 ))}

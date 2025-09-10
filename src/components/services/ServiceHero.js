@@ -19,7 +19,7 @@ const ServiceHero = ({ preTitle, title, description, solutionsHeading, badges, m
                     </div>
                 </div>
                 <div className="image-content">
-                    <img src={mainImage} alt={preTitle} />
+                    <img src={mainImage} alt={preTitle} loading="eager" />
                 </div>
             </div>
         </div>

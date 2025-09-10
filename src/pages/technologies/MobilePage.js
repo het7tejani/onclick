@@ -1,5 +1,7 @@
 import React from 'react';
 import './MobilePage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -58,8 +60,37 @@ const detailSections = [
 ];
 
 const MobilePage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mobile",
+            "item": "https://www.onclickinfotech.com/technologies/mobile"
+        }]
+    };
+
     return (
         <div className="mobile-tech-page">
+            <SEO 
+              title="Mobile App Technologies | Swift, Kotlin, React Native & Flutter"
+              description="Learn about our mobile technology stack. We develop native iOS & Android apps and cross-platform solutions using Swift, Kotlin, React Native, and Flutter for a seamless user experience."
+              url="/technologies/mobile"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Mobile"
                 title="Services for Scalable Company Growth"

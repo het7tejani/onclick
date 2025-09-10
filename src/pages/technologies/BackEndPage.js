@@ -1,5 +1,7 @@
 import React from 'react';
 import './BackEndPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -60,8 +62,37 @@ const detailSections = [
 ];
 
 const BackEndPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Back-End",
+            "item": "https://www.onclickinfotech.com/technologies/back-end"
+        }]
+    };
+
     return (
         <div className="back-end-page">
+            <SEO 
+              title="Back-End Development Technologies | Node.js, Python & PHP"
+              description="Discover our back-end development capabilities. We build robust, scalable server-side applications and APIs with technologies like Node.js, Python (Django, Flask), PHP (Laravel), and Java."
+              url="/technologies/back-end"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Back End"
                 title="Services for Scalable Business Growth"

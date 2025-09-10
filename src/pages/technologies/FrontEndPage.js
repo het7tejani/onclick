@@ -1,5 +1,7 @@
 import React from 'react';
 import './FrontEndPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -59,8 +61,37 @@ const detailSections = [
 ];
 
 const FrontEndPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Front-End",
+            "item": "https://www.onclickinfotech.com/technologies/front-end"
+        }]
+    };
+
     return (
         <div className="front-end-page">
+            <SEO 
+              title="Front-End Development Technologies | React, Angular & Vue.js"
+              description="Explore our front-end technology expertise. We build responsive, high-performance user interfaces using modern frameworks like React, Angular, and Vue.js to create seamless digital experiences."
+              url="/technologies/front-end"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Front End"
                 title="Services for Scalable Business Growth"
@@ -82,8 +113,6 @@ const FrontEndPage = () => {
                 description="We build fast, interactive, and responsive user interfaces using modern JavaScript frameworks, advanced styling systems, and performance-first tools."
                 cards={servicesCards}
             />
-
-            <div className="between-section-up"></div>
 
             <div className="technology-list-container">
                 {detailSections.map((section, index) => (

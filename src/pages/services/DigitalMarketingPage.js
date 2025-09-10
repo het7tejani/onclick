@@ -1,5 +1,7 @@
 import React from 'react';
 import './DigitalMarketingPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -56,8 +58,37 @@ const detailSections = [
 ];
 
 const DigitalMarketingPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.onclickinfotech.com/services"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Digital Marketing",
+            "item": "https://www.onclickinfotech.com/services/digital-marketing"
+        }]
+    };
+
     return (
         <div className="digital-marketing-page">
+            <SEO 
+              title="Digital Marketing Services | SEO, PPC & Content Strategy"
+              description="Drive growth with our comprehensive digital marketing services. Onclick Infotech specializes in SEO, PPC, content marketing, and social media to boost your online presence and increase ROI."
+              url="/services/digital-marketing"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Digital Marketing"
                 title="Services for Digital Marketing"

@@ -1,5 +1,7 @@
 import React from 'react';
 import './CmsPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -60,8 +62,37 @@ const detailSections = [
 ];
 
 const CmsPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "CMS",
+            "item": "https://www.onclickinfotech.com/technologies/cms"
+        }]
+    };
+
     return (
         <div className="cms-page">
+            <SEO 
+              title="CMS Development Technologies | WordPress, Shopify & Headless CMS"
+              description="We specialize in CMS development using platforms like WordPress, Shopify, Magento, and headless solutions like Contentful to give you full control over your digital content."
+              url="/technologies/cms"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Content Management System"
                 title="Services for Scalable Business Growth"

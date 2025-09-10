@@ -1,7 +1,9 @@
 import React from 'react';
 import './WebDevelopmentPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
-// Import new components
+// Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
 import FeatureShowcase from '../../components/services/FeatureShowcase';
 import CardGrid from '../../components/services/CardGrid';
@@ -57,8 +59,37 @@ const techSectionsData = [
 
 
 const WebDevelopmentPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.onclickinfotech.com/services"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Web Development",
+            "item": "https://www.onclickinfotech.com/services/web-development"
+        }]
+    };
+
     return (
         <div className="web-dev-page">
+            <SEO 
+                title="Web Development Services | Custom Web Apps & Websites"
+                description="Onclick Infotech provides expert web development services. We build fast, secure, and scalable websites and web applications using modern technologies like React, Node.js, and more."
+                url="/services/web-development"
+                image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero 
                 preTitle="Web Development"
                 title="Services for Web Development"

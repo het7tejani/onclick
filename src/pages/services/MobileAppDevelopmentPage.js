@@ -1,5 +1,7 @@
 import React from 'react';
 import './MobileAppDevelopmentPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -62,8 +64,37 @@ const detailSections = [
 ];
 
 const MobileAppDevelopmentPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.onclickinfotech.com/services"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mobile App Development",
+            "item": "https://www.onclickinfotech.com/services/mobile-app-development"
+        }]
+    };
+
     return (
         <div className="mobile-app-dev-page">
+            <SEO 
+              title="Mobile App Development Services | iOS, Android & Cross-Platform"
+              description="Onclick Infotech offers expert mobile app development for iOS and Android. We build high-performance, user-friendly native and cross-platform apps using Swift, Kotlin, React Native, and Flutter."
+              url="/services/mobile-app-development"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Mobile App Development"
                 title="Services for Mobile App Development"

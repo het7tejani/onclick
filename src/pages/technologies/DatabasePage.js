@@ -1,5 +1,7 @@
 import React from 'react';
 import './DatabasePage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -60,8 +62,37 @@ const detailSections = [
 ];
 
 const DatabasePage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Technologies",
+            "item": "https://www.onclickinfotech.com/technologies"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Database",
+            "item": "https://www.onclickinfotech.com/technologies/database"
+        }]
+    };
+
     return (
         <div className="database-page">
+            <SEO 
+              title="Database Technologies | MySQL, PostgreSQL, MongoDB & NoSQL"
+              description="Explore our database expertise. We design and manage scalable, secure database solutions using SQL (MySQL, PostgreSQL) and NoSQL (MongoDB, DynamoDB, Redis) technologies."
+              url="/technologies/database"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
+
             <ServiceHero
                 preTitle="Database"
                 title="Services for Scalable Business Growth"

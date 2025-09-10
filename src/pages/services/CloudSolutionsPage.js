@@ -1,5 +1,7 @@
 import React from 'react';
 import './CloudSolutionsPage.css';
+import SEO from '../../components/SEO';
+import StructuredData from '../../components/StructuredData';
 
 // Import reusable components
 import ServiceHero from '../../components/services/ServiceHero';
@@ -56,8 +58,36 @@ const detailSections = [
 ];
 
 const CloudSolutionsPage = () => {
+    const breadcrumbData = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.onclickinfotech.com/"
+        }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://www.onclickinfotech.com/services"
+        }, {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cloud Solutions and DevOps",
+            "item": "https://www.onclickinfotech.com/services/cloud-solutions-and-devops"
+        }]
+    };
+
     return (
         <div className="cloud-solutions-page">
+            <SEO 
+              title="Cloud & DevOps Solutions | AWS, Azure & GCP Experts"
+              description="Modernize your IT infrastructure with our cloud solutions and DevOps services. We offer cloud migration, automation, and management for AWS, Azure, and GCP to enhance scalability and efficiency."
+              url="/services/cloud-solutions-and-devops"
+              image={mainImg}
+            />
+            <StructuredData data={breadcrumbData} />
             <ServiceHero
                 preTitle="Cloud Solutions and DevOps"
                 title="Services for Cloud Solutions and DevOps"

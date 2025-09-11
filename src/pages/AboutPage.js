@@ -31,11 +31,12 @@ import clientLogo26 from "../assets/about/logo/26.webp";
 import aboutMissionImage from "../assets/about/mission.avif";
 
 // Timeline Images
-import historyImage from "../assets/about/timeline.avif";
-import projectImage from "../assets/about/timeline.avif";
-import expansionImage from "../assets/about/timeline.avif";
-import globalImage from "../assets/about/timeline.avif";
-import innovationImage from "../assets/about/timeline.avif";
+import historyImage from "../assets/about/timeline/2019.avif";
+import projectImage from "../assets/about/timeline/2020.avif";
+import expansionImage from "../assets/about/timeline/2021.avif";
+import globalImage from "../assets/about/timeline/2022.avif";
+import innovationImage from "../assets/about/timeline/2023.avif";
+import leadershipImage from "../assets/about/timeline/2025.avif"
 
 const clientLogos = [
   { src: clientLogo21, alt: "HDFC Bank" },
@@ -151,10 +152,10 @@ const Timeline = () => {
       },
       {
         year: "2025",
-        title: "International Level",
+        title: "Industry Leadership",
         description:
-          "Launched our dedicated AI & Machine Learning division to explore and implement cutting-edge technologies for our clients.",
-        image: innovationImage,
+          "Recognized as a trusted technology partner worldwide, driving innovation while focusing on sustainable growth and long-term client success.",
+        image: leadershipImage,
       },
     ],
     []

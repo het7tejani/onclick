@@ -1,70 +1,84 @@
-import React from 'react';
-import './TrustedBy.css';
+import React from "react";
+import './TrustedBy.css'
 
-// Import local logo images from available assets
-import clientLogo1 from '../assets/about/logo/1.webp';
-import clientLogo2 from '../assets/about/logo/2.webp';
-import clientLogo7 from '../assets/about/logo/7.webp';
-import clientLogo8 from '../assets/about/logo/8.webp';
-import clientLogo9 from '../assets/about/logo/9.webp';
-import clientLogo10 from '../assets/about/logo/10.webp';
-import clientLogo11 from '../assets/about/logo/11.webp';
-import clientLogo12 from '../assets/about/logo/12.webp';
-import clientLogo13 from '../assets/about/logo/13.webp';
-import clientLogo14 from '../assets/about/logo/14.webp';
-import clientLogo15 from '../assets/about/logo/15.webp';
-import clientLogo16 from '../assets/about/logo/16.webp';
-import clientLogo17 from '../assets/about/logo/17.webp';
-import clientLogo18 from '../assets/about/logo/18.webp';
-import clientLogo19 from '../assets/about/logo/19.webp';
-import clientLogo20 from '../assets/about/logo/20.webp';
-import clientLogo21 from '../assets/about/logo/21.webp';
-import clientLogo22 from '../assets/about/logo/22.webp';
+import logo1 from "../assets/about/logo/1.webp";
+import logo2 from "../assets/about/logo/2.webp";
+import logo3 from "../assets/about/logo/3.webp";
+import logo4 from "../assets/about/logo/4.webp";
+import logo5 from "../assets/about/logo/5.webp";
+import logo6 from "../assets/about/logo/6.webp";
+import logo7 from "../assets/about/logo/7.webp";
+import logo8 from "../assets/about/logo/8.webp";
+import logo9 from "../assets/about/logo/9.webp";
+import logo10 from "../assets/about/logo/10.webp";
+import logo11 from "../assets/about/logo/11.webp";
+import logo12 from "../assets/about/logo/12.webp";
+import logo13 from "../assets/about/logo/13.webp";
+import logo14 from "../assets/about/logo/14.webp";
 
-// Logos data
-const allLogos = [
-  { url: clientLogo21, alt: 'HDFC Bank', size: 125, offsetY: '-25%' },
-  { url: clientLogo18, alt: 'SBI', size: 105, offsetY: '-5%' },
-  { url: clientLogo19, alt: 'GIF', size: 90, offsetY: '-40%' },
-  { url: clientLogo20, alt: 'Shah Investment', size: 85, offsetY: '45%' },
-  { url: clientLogo17, alt: 'Bandhan', size: 100, offsetY: '-10%' },
-  { url: clientLogo22, alt: 'Costa Coffee', size: 105, offsetY: '-30%' },
-  { url: clientLogo7, alt: 'Rajhans', size: 120, offsetY: '30%' },
-  { url: clientLogo8, alt: 'Cognizant', size: 115, offsetY: '-20%' },
-  { url: clientLogo9, alt: 'Patidar', size: 85, offsetY: '15%' },
-  { url: clientLogo10, alt: 'P.P.Savani', size: 85, offsetY: '-15%' },
-  { url: clientLogo2, alt: 'Icon', size: 105, offsetY: '40%' },
-  { url: clientLogo15, alt: 'BAPS', size: 100, offsetY: '-35%' },
-  { url: clientLogo16, alt: 'Gas mate', size: 95, offsetY: '50%' },
-  { url: clientLogo1, alt: 'Khalas', size: 100, offsetY: '-20%' },
-  { url: clientLogo12, alt: 'Shiksha', size: 80, offsetY: '10%' },
-  { url: clientLogo13, alt: 'CIJ', size: 115, offsetY: '35%' },
-  { url: clientLogo11, alt: 'Shiksha', size: 80, offsetY: '-45%' },
-  { url: clientLogo14, alt: 'RCloud', size: 100, offsetY: '5%' },
-];
 
-const TrustedBy = () => {
+const TrustedBy = ({ speed = 60 }) => {
+  // Two uneven rows (top and bottom)
+  const allLogos = [
+    // Top row
+    { src: logo1, alt: "Logo 1", offsetY: -30 },
+    { src: logo2, alt: "Logo 2", offsetY: -5 },
+    { src: logo3, alt: "Logo 3", offsetY: -20 },
+    { src: logo4, alt: "Logo 4", offsetY: -10 },
+    { src: logo5, alt: "Logo 5", offsetY: -18 },
+    { src: logo6, alt: "Logo 6", offsetY: -6 },
+    { src: logo7, alt: "Logo 7", offsetY: -26 },
+
+    // Bottom row
+    { src: logo8, alt: "Logo 8", offsetY: 18 },
+    { src: logo9, alt: "Logo 9", offsetY: 35 },
+    { src: logo10, alt: "Logo 10", offsetY: 12 },
+    { src: logo11, alt: "Logo 11", offsetY: 28 },
+    { src: logo12, alt: "Logo 12", offsetY: 22 },
+    { src: logo13, alt: "Logo 13", offsetY: 38 },
+    { src: logo14, alt: "Logo 14", offsetY: 15 },
+  ];
+
   return (
-    <section className="logos-section">
-      <h2 className="logos-title">Trusted by CFOs and Leading Finance Teams</h2>
-      <div className="logos-container">
-        <div className="logos-track">
-          {[...allLogos, ...allLogos].map((logo, index) => (
+    <>
+=      <section className="trusted-section">
+        <h2>Trusted by CFOs and Leading Finance Teams</h2>
+        <div className="logo-container">
+          <div className="logo-slider">
             <div
-              className="logo-slide"
-              key={`${logo.alt}-${index}`}
-              style={{
-                width: `${logo.size}px`,
-                height: `${logo.size}px`,
-                '--translate-y': logo.offsetY,
-              }}
+              className="logo-track"
+              style={{ animationDuration: `${speed}s` }}
             >
-              <img src={logo.url} alt={logo.alt} loading="lazy" />
+              {/* First loop */}
+              {allLogos.map((logo, idx) => (
+                <div
+                  className="logo-item"
+                  key={`first-${idx}`}
+                  style={{
+                    transform: `translateY(${logo.offsetY}px)`,
+                  }}
+                >
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+              ))}
+
+              {/* Second loop (for seamless scroll) */}
+              {allLogos.map((logo, idx) => (
+                <div
+                  className="logo-item"
+                  key={`second-${idx}`}
+                  style={{
+                    transform: `translateY(${logo.offsetY}px)`,
+                  }}
+                >
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

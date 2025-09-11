@@ -5,7 +5,6 @@ import Stats from '../components/home/Stats';
 import InfoSection from '../components/home/InfoSection';
 import Services from '../components/home/Services';
 import Badges from '../components/home/Badges';
-import TrustedBy from '../components/TrustedBy';
 import AIAnalyzerSection from '../components/AIAnalyzerSection';
 import SEO from '../components/SEO';
 import StructuredData from '../components/StructuredData';
@@ -13,6 +12,7 @@ import successStoryImage from '../assets/home/success story.png';
 import priorityImage from '../assets/home/priority.png';
 import historyImage from '../assets/home/history.png';
 import heroDashboardImage from '../assets/home/hero.avif'
+import LogoSlider from '../components/TrustedBy';
 
 const infoSectionsData = [
     {
@@ -47,7 +47,7 @@ const infoSectionsData = [
       imageOnLeft: true,
     },
     {
-      title: "Mobile App Development",
+      title: "Our History",
       listItems: [
         "<strong>Founded:</strong> In the early 2010s by a group of passionate tech enthusiasts.",
         "<strong>Starting Point:</strong> Began as a small freelance team focused on web and mobile development.",
@@ -122,7 +122,8 @@ const HomePage = () => {
                   />
               ))}
             </div>
-            <TrustedBy />
+            {/* <TrustedBy /> */}
+            <LogoSlider/>
             <Services />
             <AIAnalyzerSection />
             <Badges />

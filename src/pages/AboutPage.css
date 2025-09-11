@@ -380,13 +380,15 @@
 .timeline-progress-bar {
   position: absolute;
   width: 3px;
-  background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+  background: linear-gradient(to bottom, #60a5fa, #2563eb); /* Blue gradient */
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   height: 0;
   top: 0;
+  transition: height 0.2s ease-out;
 }
+
 
 @keyframes pulse-dot {
   0% {

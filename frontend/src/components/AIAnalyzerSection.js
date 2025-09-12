@@ -145,7 +145,7 @@ const AIAnalyzerSection = () => {
         setStep(totalWizardSteps);
 
         try {
-            const response = await fetch('/api/analyze-idea', {
+            const response = await fetch('https://onclick-backend-oyce.onrender.com/api/analyze-idea', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

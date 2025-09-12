@@ -261,7 +261,7 @@ const ContactPage = () => {
         setFormStatus({ status: 'sending', message: '' });
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('https://onclick-backend-oyce.onrender.com/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
